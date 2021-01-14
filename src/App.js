@@ -18,11 +18,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   body{
     overflow-x: hidden;
     background-color: #eee;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
+    position: relative;
+    min-height: 100vh;
   }
 `
 
