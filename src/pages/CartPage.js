@@ -19,7 +19,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import styled from "styled-components";
 
 import jacket1 from "../img/jackets/m__black-track-jacket.png";
-import pants1 from "../img/t-shirts/pants-adi-trefoil-red.jpg";
 
 
 const useStyles = makeStyles({
@@ -38,14 +37,8 @@ function createData(name, url, size, quantity, price, total) {
 
 const rows = [
     createData('Black track suit ', jacket1, 'M', 2, 6.0, 24.0),
-    createData('Red Pants', pants1, 'S', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-    createData('Slippers', pants1, '42', 1, 3.0, 3.0),
-
+    createData('Red Pants', jacket1, 'S', 1, 3.0, 3.0),
+    createData('Slippers', jacket1, '42', 1, 3.0, 3.0),
 ];
 
 const summary =
@@ -183,8 +176,7 @@ const ContactPage = () => {
                                     Shipping
                                 </InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-disabled-label"
-                                    id="demo-simple-select-disabled"
+                                    defaultValue={4}
                                 >
                                     <MenuItem value={4}><em>Standard</em></MenuItem>
                                     <MenuItem value={2}>Cheap</MenuItem>

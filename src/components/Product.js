@@ -23,6 +23,8 @@ const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
     margin: 0 auto;
+    position: relative;
+
   }
 
   .product-img{
@@ -65,11 +67,39 @@ const Container = styled.div`
       }
 
   }
+.icon{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+    width: 3rem;
+    border-radius: 50%;
+    font-family: 'Satisfy', 'Helvetica Neue';
+}
+.icon--sale{
+  background: #FFB6B3;
+
+}
+.icon--new{
+  background: #B3CDFF;
+
+}
 `
 
 const useStyles = makeStyles((theme) => ({
   button: {
+    background: '#18A0FB',
+    borderRadius: '50px',
     margin: theme.spacing(1),
+    '&:hover': {
+      background: "#1373B4",
+    },
   },
 }));
 
@@ -81,7 +111,7 @@ const Product = (props) => {
       <Paper elevation={0} >
         <div className="image-container">
           <img className="product-img" src={props.imgUrl} alt="Product" />
-          <div className="icon"></div></div>
+          <div className="icon icon--sale">-50%</div></div>
         <div className="container-info">
           <span className="category">{props.category}</span>
           <span className="name">{props.name}</span>
@@ -96,7 +126,7 @@ const Product = (props) => {
               className={classes.button}
               startIcon={<AddShoppingCartIcon />}
             >
-              Add to cart
+              Add
           </Button>
           </div>
         </div>

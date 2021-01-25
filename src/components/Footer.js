@@ -72,13 +72,20 @@ const Container = styled.div`
             color: #fff;
             cursor: pointer;
         }
+        &>a{
+        text-decoration: none;
+        color: inherit;
+    }
     }
     &-link{
         text-decoration: none;
         color: inherit;
         text-decoration: none;
+        border: solid 1px #ccc;
+        padding: 0.4rem 1rem;
         &:hover{
-        color: #fff;
+        color: #252525;
+        background: #ccc;
         }
     }
   }
@@ -92,6 +99,7 @@ const Container = styled.div`
     &>li{
     list-style-type: none;
     margin-bottom: 0.8rem;
+
     }
   }
 
@@ -135,7 +143,7 @@ const Footer = () => {
                     <li>Returns and exchanges</li>
                     <li>Terms and conditions</li>
                     <li>Privacy Policy</li>
-                    <li><NavLink to='/contact' className="info-link">Contact</NavLink></li>
+                    <li><NavLink to='/contact'>Contact</NavLink></li>
                 </ul>
                 <div className="social-container">
                     <img className="social-logo" src={logo} alt="logo" />
@@ -156,7 +164,7 @@ const Footer = () => {
                     <br /> 01-2005 Ipsum
                     <br /> Tel: 1-800-123-4567
                     <br /> email : info@dummy.com </li>
-                    <li><NavLink to='/contact' className="info-link">Use our contact form </NavLink></li>
+                    <li> <NavLink to='/contact' className="info-link">Use our contact form </NavLink></li>
                 </ul>
                 <div className="bottom">
                     <hr className="hr" />

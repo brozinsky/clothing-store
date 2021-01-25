@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 
+import { ProductsProvider } from './contexts/ProductsContext';
+
+
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import ContactPage from './pages/ContactPage';
@@ -35,14 +38,16 @@ function App() {
       <GlobalStyle />
       <Router>
         <Menu />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/cart" component={CartPage} />
-          <Route component={ErrorPage} />
-        </Switch>
-        <Footer />
+        <ProductsProvider>
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/contact" component={ContactPage} />
+            <Route path="/cart" component={CartPage} />
+            <Route component={ErrorPage} />
+          </Switch>
+          <Footer />
+        </ProductsProvider>
       </Router>
     </>
   );

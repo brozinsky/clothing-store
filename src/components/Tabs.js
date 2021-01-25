@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 import menTab from "../img/tab-men.png";
 import womenTab from "../img/tab-women.png";
@@ -94,8 +95,21 @@ const Stripes = styled.div`
       }
 `
 
+const useStyles = makeStyles((theme) => ({
+    button: {
+        background: '#3396C6',
+        borderRadius: '10px',
+        margin: theme.spacing(1),
+        '&:hover': {
+            background: "#1373B4",
+        },
+    },
+}));
+
 
 const Tabs = (props) => {
+    const classes = useStyles();
+
     return (
         <>
             <Container >
@@ -108,6 +122,7 @@ const Tabs = (props) => {
                             <span className="title-thin"> Collection</span>
                         </h2>
                         <Button
+                            className={classes.button}
                             variant="contained"
                             color="primary"
                             size="large"
@@ -127,6 +142,7 @@ const Tabs = (props) => {
                             <span className="title-thin"> Collection</span>
                         </h2>
                         <Button
+                            className={classes.button}
                             variant="contained"
                             color="primary"
                             size="large"

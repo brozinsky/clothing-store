@@ -28,7 +28,6 @@ const ImageContainer = styled.div`
   margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-bottom: 50px;
 `
 
 
@@ -39,10 +38,9 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   overflow: hidden;
-  margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-bottom: 50px;
+  padding-bottom: 320px;
 
   .title{
     font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;

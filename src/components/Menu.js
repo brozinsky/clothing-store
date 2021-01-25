@@ -34,20 +34,22 @@ box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
     height: 3rem;
     flex-wrap: nowrap;
     &>a{
+        padding: 0.3rem;
         margin-right: 2rem;
         list-style-type: none;
         text-decoration: none;
             text-transform: uppercase;
             color: #333;
-            border-bottom: 3px solid #fff;
+            border-bottom: 2px solid #fff;
             transition: 0.2s;
             font-weight:400;
             &:hover{
-                border-bottom: 3px solid #007DB9;
+                color: #18A0FB;
             }
     }
     &>a.active{
-            color: #007DB9;
+        border-bottom: 2px solid #18A0FB;
+        color: #18A0FB;
     }
     }
 
@@ -58,10 +60,11 @@ const Menu = (props) => {
     return (
         <Nav>
             <div className="wrap">
-                <img className="logo" src={logo} alt="logo" />
+                <NavLink exact to='/'><img className="logo" src={logo} alt="logo" /></NavLink>
                 <div className="tabs">
-                    <NavLink exact to='/'>Home</NavLink>
-                    <NavLink to='/shop'>Shop</NavLink>
+                    <NavLink to='/shop'>Sale</NavLink>
+                    <NavLink to='/shop'>Men</NavLink>
+                    <NavLink to='/shop'>Women</NavLink>
                     <NavLink to='/contact'>Contact</NavLink>
                     <NavLink to='/cart'>
                         <ShoppingCartOutlinedIcon />
