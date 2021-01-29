@@ -14,8 +14,23 @@ padding-top: 5rem;
 padding-bottom: 25rem;
 `
 
-const ShopPage = () => {
-    const [products, setProducts] = useContext(ProductsContext);
+const ShopPage = props => {
+    const [products] = useContext(ProductsContext);
+    console.log(props.value)
+
+    const renderedProducts = products
+        .filter(product => product.sex === props.value || product.sale === 20)
+        .map(product => (
+            <Product
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                sale={product.sale}
+                imgUrl={product.imgUrl}
+            />
+        ));
 
     return (
         <>
@@ -27,9 +42,7 @@ const ShopPage = () => {
                     justify="space-evenly"
                     alignItems="flex-start"
                 >
-                    {products.map((product) => (
-                        <Product key={product.id} name={product.name} category={product.category} price={product.price} sale={product.sale} imgUrl={product.imgUrl} />
-                    ))}
+                    {renderedProducts}
                 </Grid>
             </Wrapper>
         </>

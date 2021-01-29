@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProductsContext } from '../contexts/ProductsContext';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -124,6 +125,7 @@ padding-top: 5rem;
 
 const ContactPage = () => {
     const classes = useStyles();
+    const [products, setProducts] = useContext(ProductsContext);
 
     return (
         <>

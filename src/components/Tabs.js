@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
+import { NavLink } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import menTab from "../img/tab-men.png";
@@ -121,15 +123,17 @@ const Tabs = (props) => {
                             <br />
                             <span className="title-thin"> Collection</span>
                         </h2>
-                        <Button
-                            className={classes.button}
-                            variant="contained"
-                            color="primary"
-                            size="large"
+                        <NavLink to='/shop/women'>
+                            <Button
+                                className={classes.button}
+                                variant="contained"
+                                color="primary"
+                                size="large"
 
-                        >
-                            Shop now
+                            >
+                                Shop now
                 </Button>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -141,14 +145,16 @@ const Tabs = (props) => {
                             <br />
                             <span className="title-thin"> Collection</span>
                         </h2>
-                        <Button
-                            className={classes.button}
-                            variant="contained"
-                            color="primary"
-                            size="large"
-                        >
-                            Shop now
+                        <NavLink to='/shop/men'>
+                            <Button
+                                className={classes.button}
+                                variant="contained"
+                                color="primary"
+                                size="large"
+                            >
+                                Shop now
                 </Button>
+                        </NavLink>
                     </div>
 
                 </div>

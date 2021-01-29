@@ -13,7 +13,7 @@ import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 
 const Container = styled.div`
   background: #ddd;
-  height: 20rem;
+  height: 18rem;
   width: 100%;
   display: flex;
   position: absolute;

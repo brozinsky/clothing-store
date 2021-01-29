@@ -4,7 +4,7 @@ import Menu from './components/Menu';
 import Footer from './components/Footer';
 
 import { ProductsProvider } from './contexts/ProductsContext';
-
+import { CartProvider } from './contexts/CartContext';
 
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
@@ -37,17 +37,22 @@ function App() {
     <>
       <GlobalStyle />
       <Router>
-        <Menu />
         <ProductsProvider>
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/cart" component={CartPage} />
-            <Route component={ErrorPage} />
-          </Switch>
-          <Footer />
+          <CartProvider>
+            <Menu />
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/shop/sale"><ShopPage value='onSale' /></Route>
+              <Route path="/shop/men"><ShopPage value='m' /></Route>
+              <Route path="/shop/women"><ShopPage value='f' /></Route>
+
+              <Route path="/contact" component={ContactPage} />
+              <Route path="/cart" component={CartPage} />
+              <Route component={ErrorPage} />
+            </Switch>
+          </CartProvider>
         </ProductsProvider>
+        <Footer />
       </Router>
     </>
   );

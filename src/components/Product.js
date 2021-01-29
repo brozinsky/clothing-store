@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { Paper } from '@material-ui/core'
+import { Paper } from '@material-ui/core';
+import { ProductsContext } from '../contexts/ProductsContext';
+
 
 const Container = styled.div`
   display: flex;
@@ -103,8 +105,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Product = (props) => {
+const Product = props => {
   const classes = useStyles();
+  const [products, setProducts] = useContext(ProductsContext);
+
+
+  function handleAddClick(e) {
+    console.log(e.target.dataset.key)
+    setProducts(prevProducts => [
+      ...prevProducts, { id: 121, sex: 'm', name: 'Black track jacket', category: 'Jackets', price: 65, sale: 32, inCart: 1 },
+
+    ])
+  }
 
   return (
     <Container>
@@ -121,9 +133,11 @@ const Product = (props) => {
               <span className="price price--sale">{props.sale}</span>
             </div>
             <Button
+              data-key={props.id}
               variant="contained"
               color="primary"
               className={classes.button}
+              onClick={handleAddClick}
               startIcon={<AddShoppingCartIcon />}
             >
               Add
@@ -131,7 +145,7 @@ const Product = (props) => {
           </div>
         </div>
       </Paper>
-    </Container>
+    </Container >
   )
 }
 

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import { ProductsContext } from '../contexts/ProductsContext';
+
 
 import styled from "styled-components";
 
@@ -52,23 +54,45 @@ box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
         color: #18A0FB;
     }
     }
-
+.cart-qt{
+    display:inline-block;
+    height: 1.3rem;
+    width: 1.3rem;
+    line-height: 1.3rem;
+    border-radius: 50%;
+    background: #18A0FB;
+    color: #fff;
+    text-align: center;
+}
+.none{
+    color: #000;
+    background: #fff;
+}
 `
 
-const Menu = (props) => {
+const Menu = props => {
+    const [products, setProducts] = useContext(ProductsContext);
+
+    let cartNumber = products.reduce((acc, curr) => acc + curr.inCart, 0);;
 
     return (
         <Nav>
             <div className="wrap">
                 <NavLink exact to='/'><img className="logo" src={logo} alt="logo" /></NavLink>
                 <div className="tabs">
-                    <NavLink to='/shop'>Sale</NavLink>
-                    <NavLink to='/shop'>Men</NavLink>
-                    <NavLink to='/shop'>Women</NavLink>
+                    <NavLink exact to='/shop/sale'>Sale</NavLink>
+                    <NavLink to='/shop/men'>Men</NavLink>
+                    <NavLink to='/shop/women'>Women</NavLink>
                     <NavLink to='/contact'>Contact</NavLink>
                     <NavLink to='/cart'>
-                        <ShoppingCartOutlinedIcon />
-                        <span className="cart-qt">0</span>
+                        <ShoppingCartOutlinedIcon
+                            style={
+                                cartNumber === 0 ?
+                                    { color: '#000' } :
+                                    { color: '#18A0FB' }
+                            } />
+                        <span className={cartNumber === 0 ?
+                            "cart-qt none" : "cart-qt"} >{cartNumber}</span>
                     </NavLink>
                 </div>
             </div>
