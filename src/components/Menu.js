@@ -1,13 +1,42 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import { ProductsContext } from '../contexts/ProductsContext';
-
+import { CartContext } from '../contexts/CartContext';
 
 import styled from "styled-components";
 
 import logo from "../img/b_logo.svg";
 
+const Menu = props => {
+    const [cart, setInCart] = useContext(CartContext);
+
+    //let cartNumber = products.reduce((acc, curr) => acc + curr.inCart, 0);;
+    let cartNumber = cart.length;
+
+    return (
+        <Nav>
+            <div className="wrap">
+                <NavLink exact to='/'><img className="logo" src={logo} alt="logo" /></NavLink>
+                <div className="tabs">
+                    <NavLink exact to='/shop/sale'>Sale</NavLink>
+                    <NavLink to='/shop/men'>Men</NavLink>
+                    <NavLink to='/shop/women'>Women</NavLink>
+                    <NavLink to='/contact'>Contact</NavLink>
+                    <NavLink to='/cart'>
+                        <ShoppingCartOutlinedIcon
+                            style={
+                                cartNumber === 0 ?
+                                    { color: '#000' } :
+                                    { color: '#18A0FB' }
+                            } />
+                        <span className={cartNumber === 0 ?
+                            "cart-qt none" : "cart-qt"} >{cartNumber}</span>
+                    </NavLink>
+                </div>
+            </div>
+        </Nav>
+    )
+}
 
 const Nav = styled.nav`
 width: 100vw;
@@ -69,35 +98,5 @@ box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
     background: #fff;
 }
 `
-
-const Menu = props => {
-    const [products, setProducts] = useContext(ProductsContext);
-
-    let cartNumber = products.reduce((acc, curr) => acc + curr.inCart, 0);;
-
-    return (
-        <Nav>
-            <div className="wrap">
-                <NavLink exact to='/'><img className="logo" src={logo} alt="logo" /></NavLink>
-                <div className="tabs">
-                    <NavLink exact to='/shop/sale'>Sale</NavLink>
-                    <NavLink to='/shop/men'>Men</NavLink>
-                    <NavLink to='/shop/women'>Women</NavLink>
-                    <NavLink to='/contact'>Contact</NavLink>
-                    <NavLink to='/cart'>
-                        <ShoppingCartOutlinedIcon
-                            style={
-                                cartNumber === 0 ?
-                                    { color: '#000' } :
-                                    { color: '#18A0FB' }
-                            } />
-                        <span className={cartNumber === 0 ?
-                            "cart-qt none" : "cart-qt"} >{cartNumber}</span>
-                    </NavLink>
-                </div>
-            </div>
-        </Nav>
-    )
-}
 
 export default Menu;

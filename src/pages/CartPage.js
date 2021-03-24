@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import ProductInCart from '../components/ProductInCart';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,15 +35,11 @@ const CartPage = () => {
     const [cart, setCart] = useContext(CartContext);
     const totalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
 
-    const handleRemoveItem = () => {
-        //make a new component ProductInCart and manage setCart inside it
-    }
-
     return (
         <>
             <Wrapper>
                 <div className="container">
-                    <h1 className="title">My cart</h1>
+                    <h2 className="title">My cart</h2>
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
@@ -55,27 +52,11 @@ const CartPage = () => {
                             </TableHead>
                             <TableBody>
                                 {cart.map(item => (
-                                    <TableRow key={item.name}>
-                                        <TableCell component="th" scope="row">
-                                            <div className="details-wrap">
-                                                <img className="details-img" src={item.url} alt="product" />
-                                                <div className="details-container">
-                                                    <div className="name-container">
-                                                        <span className="details-name">{item.name}</span>
-                                                        <span>size: M</span></div>
-                                                    <button
-                                                        onClick={handleRemoveItem}
-                                                        className="details-delete">
-                                                        <DeleteIcon /> remove item
-                                                        </button>
-                                                </div>
-                                            </div>
-
-                                        </TableCell>
-                                        <TableCell align="right">1</TableCell>
-                                        <TableCell align="right">${item.price}</TableCell>
-                                        <TableCell align="right">${item.price}</TableCell>
-                                    </TableRow>
+                                    <ProductInCart
+                                        id={item.id}
+                                        name={item.name}
+                                        url={item.url}
+                                        price={item.price} />
                                 ))}
                             </TableBody>
                         </Table>

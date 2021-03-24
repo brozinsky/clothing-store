@@ -28,9 +28,7 @@ import other1 from "../img/other/fanny-pack-adi.png";
 import other2 from "../img/other/fanny-pack-fila.png";
 import other3 from "../img/other/fanny-pack-nike.png";
 
-
 export const ProductsContext = createContext();
-
 
 export const ProductsProvider = props => {
     const [products, setProducts] = useState([
