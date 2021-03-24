@@ -32,33 +32,143 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = props => {
     const [products, setProducts] = useState([
-        { id: 1, sex: 'm', name: 'Black track jacket', category: 'Jackets', price: 65, sale: 32, imgUrl: jacket1, inCart: 1, isNew: false, isOnSale: false },
-        { id: 2, sex: 'm', name: 'Black training jacket', category: 'Jackets', price: 50, sale: 25, imgUrl: jacket2, inCart: 0, isNew: false, isOnSale: false },
-        { id: 3, sex: 'm', name: 'Red training jacket', category: 'Jackets', price: 50, sale: 25, imgUrl: jacket3, inCart: 0, isNew: false, isOnSale: false },
-        { id: 4, sex: 'f', name: 'Red track jacket', category: 'Jackets', price: 75, sale: 38, imgUrl: jacket4, inCart: 0, isNew: false, isOnSale: false },
-        { id: 5, sex: 'm', name: 'Blue track jacket', category: 'Jackets', price: 75, sale: 38, imgUrl: jacket5, inCart: 0, isNew: false, isOnSale: false },
-        { id: 6, sex: 'm', name: 'Tricolor track jacket', category: 'Jackets', price: 80, sale: 40, imgUrl: jacket6, inCart: 0, isNew: false, isOnSale: false },
-        { id: 7, sex: 'f', name: 'Firebird jacket', category: 'Jackets', price: 80, sale: 40, imgUrl: jacket7, inCart: 0, isNew: false, isOnSale: false },
+        {
+            id: 1, sex: 'm', name: 'Black track jacket',
+            category: 'Jackets', price: 65, sale: null,
+            imgUrl: jacket1, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 2, sex: 'm', name: 'Black training jacket',
+            category: 'Jackets', price: 50, sale: 50,
+            imgUrl: jacket2, isNew: false,
+            isOnSale: true
+        },
+        {
+            id: 3, sex: 'm', name: 'Red training jacket',
+            category: 'Jackets', price: 50, sale: null,
+            imgUrl: jacket3, isNew: true,
+            isOnSale: false
+        },
+        {
+            id: 4, sex: 'f', name: 'Red track jacket',
+            category: 'Jackets', price: 75, sale: null,
+            imgUrl: jacket4, isNew: true,
+            isOnSale: false
+        },
+        {
+            id: 5, sex: 'm', name: 'Blue track jacket',
+            category: 'Jackets', price: 75, sale: null,
+            imgUrl: jacket5, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 6, sex: 'm', name: 'Tricolor track jacket',
+            category: 'Jackets', price: 80, sale: 50,
+            imgUrl: jacket6, isNew: false,
+            isOnSale: true
+        },
+        {
+            id: 7, sex: 'f', name: 'Firebird jacket',
+            category: 'Jackets', price: 80, sale: null,
+            imgUrl: jacket7, isNew: true,
+            isOnSale: false
+        },
 
-        { id: 11, sex: 'm', name: 'Black training pants', category: 'Pants', price: 65, sale: 32, imgUrl: pants1, inCart: 0, isNew: false },
-        { id: 12, sex: 'm', name: 'Blue training pants', category: 'Pants', price: 45, sale: 23, imgUrl: pants2, inCart: 0, isNew: false },
-        { id: 13, sex: 'f', name: 'Black joggers', category: 'Pants', price: '$40', sale: '$20', imgUrl: pants3, inCart: 0, isNew: false },
-        { id: 14, sex: 'f', name: 'Black Track pants', category: 'Pants', price: 45, sale: 23, imgUrl: pants4, inCart: 0, isNew: false },
-        { id: 15, sex: 'f', name: 'Pink joggers', category: 'Pants', price: 40, sale: 20, imgUrl: pants5, inCart: 0, isNew: false },
-        { id: 16, sex: 'f', name: 'Red Track pants', category: 'Pants', price: 45, sale: 23, imgUrl: pants6, inCart: 0, isNew: false },
+        {
+            id: 11, sex: 'm', name: 'Black training pants',
+            category: 'Pants', price: 65, sale: 50,
+            imgUrl: pants1, isNew: false,
+            isOnSale: true
+        },
+        {
+            id: 12, sex: 'm', name: 'Blue training pants',
+            category: 'Pants', price: 45, sale: null,
+            imgUrl: pants2, isNew: true,
+            isOnSale: false
+        },
+        {
+            id: 13, sex: 'f', name: 'Black joggers',
+            category: 'Pants', price: 40, sale: null,
+            imgUrl: pants3, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 14, sex: 'f', name: 'Black Track pants',
+            category: 'Pants', price: 45, sale: null,
+            imgUrl: pants4, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 15, sex: 'f', name: 'Pink joggers',
+            category: 'Pants', price: 40, sale: null,
+            imgUrl: pants5, isNew: true,
+            isOnSale: false
+        },
+        {
+            id: 16, sex: 'f', name: 'Red Track pants',
+            category: 'Pants', price: 45, sale: 25,
+            imgUrl: pants6, isNew: false,
+            isOnSale: true
+        },
 
-        { id: 21, sex: 'm', name: 'Red T-shirt', category: 'T-shirts', price: 24, sale: 12, imgUrl: tshirt1, inCart: 0, isNew: false },
+        {
+            id: 21, sex: 'm', name: 'Red T-shirt',
+            category: 'T-shirts', price: 24, sale: null,
+            imgUrl: tshirt1, isNew: false,
+            isOnSale: false
+        },
 
-        { id: 31, sex: 'f', name: 'Superstar sneakers', category: 'Shoes', price: '$85', sale: 43, imgUrl: shoes1, inCart: 1, isNew: false },
-        { id: 32, sex: 'm', name: 'Slides', category: 'Shoes', price: 20, sale: 10, imgUrl: shoes2, inCart: 0, isNew: false },
+        {
+            id: 31, sex: 'f', name: 'Superstar sneakers',
+            category: 'Shoes', price: '$85', sale: null,
+            imgUrl: shoes1, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 32, sex: 'm', name: 'Slides',
+            category: 'Shoes', price: 20, sale: 50,
+            imgUrl: shoes2, isNew: false,
+            isOnSale: true
+        },
 
-        { id: 41, sex: 'm', name: 'Black flat cap', category: 'Hats', price: 20, sale: 10, imgUrl: hats1, inCart: 0, isNew: false },
-        { id: 42, sex: 'm', name: 'Leather flat cap', category: 'Hats', price: 20, sale: 10, imgUrl: hats2, inCart: 0, isNew: false },
-        { id: 43, sex: 'm', name: 'Ushanka', category: 'Hats', price: 20, sale: 10, imgUrl: hats3, inCart: 0, isNew: false },
+        {
+            id: 41, sex: 'm', name: 'Black flat cap',
+            category: 'Hats', price: 20, sale: 50,
+            imgUrl: hats1, isNew: false,
+            isOnSale: true
+        },
+        {
+            id: 42, sex: 'm', name: 'Leather flat cap',
+            category: 'Hats', price: 20, sale: null,
+            imgUrl: hats2, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 43, sex: 'm', name: 'Ushanka',
+            category: 'Hats', price: 20, sale: null,
+            imgUrl: hats3, isNew: true,
+            isOnSale: false
+        },
 
-        { id: 51, sex: null, name: 'Fanny pack - Adidas', category: 'Other', price: 20, sale: 10, imgUrl: other1, inCart: 1, isNew: false },
-        { id: 52, sex: null, name: 'Fanny pack - Fila', category: 'Other', price: 20, sale: 10, imgUrl: other2, inCart: 0, isNew: false },
-        { id: 53, sex: null, name: 'Fanny pack - Nike', category: 'Other', price: 20, sale: 10, imgUrl: other3, inCart: 0, isNew: false },
+        {
+            id: 51, sex: null, name: 'Fanny pack - Adidas',
+            category: 'Other', price: 20, sale: null,
+            imgUrl: other1, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 52, sex: null, name: 'Fanny pack - Fila',
+            category: 'Other', price: 20, sale: null,
+            imgUrl: other2, isNew: false,
+            isOnSale: false
+        },
+        {
+            id: 53, sex: null, name: 'Fanny pack - Nike',
+            category: 'Other', price: 20, sale: null,
+            imgUrl: other3, isNew: false,
+            isOnSale: false
+        },
 
     ])
 

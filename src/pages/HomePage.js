@@ -19,6 +19,22 @@ const tabs = [
 const HomePage = () => {
     const [products, setProducts] = useContext(ProductsContext);
 
+    const newProducts = products
+        .filter(product => (product.isNew === true))
+        .map(product => (
+            <Product
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                sale={product.sale}
+                imgUrl={product.imgUrl}
+                isOnSale={product.isOnSale}
+                isNew={product.isNew}
+            />
+        ));
+
     return (
         <>
             <Header />
@@ -29,9 +45,8 @@ const HomePage = () => {
                 justify="space-evenly"
                 alignItems="flex-start"
             >
-                {products.map((product) => (
-                    <Product key={product.id} name={product.name} category={product.category} price={product.price} sale={product.sale} imgUrl={product.imgUrl} />
-                ))}
+                <h2>Check our new products:</h2>
+                {newProducts}
             </Grid>
             <Social />
         </>

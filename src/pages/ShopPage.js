@@ -7,19 +7,13 @@ import Filter from '../components/Filter';
 import Grid from '@material-ui/core/Grid';
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-margin: 0 auto;
-max-width: 1200px;
-padding-top: 5rem;
-padding-bottom: 25rem;
-`
-
 const ShopPage = props => {
     const [products] = useContext(ProductsContext);
-    console.log(props.value)
 
     const renderedProducts = products
-        .filter(product => product.sex === props.value || product.sale === 20)
+        .filter(product => (product.sex === props.value
+            || (product.sex === null && props.value !== 'onSale'))
+            || (props.value === 'onSale' && product.isOnSale === true))
         .map(product => (
             <Product
                 key={product.id}
@@ -29,6 +23,8 @@ const ShopPage = props => {
                 price={product.price}
                 sale={product.sale}
                 imgUrl={product.imgUrl}
+                isOnSale={product.isOnSale}
+                isNew={product.isNew}
             />
         ));
 
@@ -47,7 +43,13 @@ const ShopPage = props => {
             </Wrapper>
         </>
     );
-
 }
+
+const Wrapper = styled.div`
+margin: 0 auto;
+max-width: 1200px;
+padding-top: 5rem;
+padding-bottom: 25rem;
+`
 
 export default ShopPage;

@@ -10,7 +10,6 @@ import logo from "../img/b_logo.svg";
 const Menu = props => {
     const [cart, setInCart] = useContext(CartContext);
 
-    //let cartNumber = products.reduce((acc, curr) => acc + curr.inCart, 0);;
     let cartNumber = cart.length;
 
     return (

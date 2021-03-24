@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Product = ({ category, imgUrl, name, price, sale, id }) => {
+const Product = ({ category, imgUrl, name, price, sale, id, isOnSale, isNew }) => {
   const classes = useStyles();
-  const [cart, setCart] = useContext(CartContext);
+  const [setCart] = useContext(CartContext);
 
   const handleAddToCart = () => {
     const product = {
@@ -38,14 +38,20 @@ const Product = ({ category, imgUrl, name, price, sale, id }) => {
       <Paper elevation={0} >
         <div className="image-container">
           <img className="product-img" src={imgUrl} alt="Product" />
-          <div className="icon icon--sale">-50%</div></div>
+          <div
+            className={
+              isOnSale ? 'icon icon--sale' : ''
+                || isNew ? 'icon icon--new' : ''}>
+            {isNew ? 'New' : null || isOnSale ? `-${sale}%` : null} </div>
+        </div>
         <div className="container-info">
           <span className="category">{category}</span>
           <span className="name">{name}</span>
           <div className="container-row">
             <div className="container-price">
-              <span className="price price--crossed">{price}</span>
-              <span className="price price--sale">{sale}</span>
+              <span className={
+                isOnSale ? 'price price--crossed' : 'price'}>${price}</span>
+              {isOnSale ? <span className="price price--sale">${price * sale / 100}</span> : null}
             </div>
             <Button
               data-key={id}
@@ -54,9 +60,7 @@ const Product = ({ category, imgUrl, name, price, sale, id }) => {
               className={classes.button}
               onClick={handleAddToCart}
               startIcon={<AddShoppingCartIcon />}
-            >
-              Add
-          </Button>
+            >Add</Button>
           </div>
         </div>
       </Paper>
@@ -147,7 +151,6 @@ const Container = styled.div`
 }
 .icon--new{
   background: #B3CDFF;
-
 }
 `
 
