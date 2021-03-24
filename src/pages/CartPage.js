@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ProductsContext } from '../contexts/ProductsContext';
+import { CartContext } from '../contexts/CartContext';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -19,9 +19,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 import styled from "styled-components";
 
-import jacket1 from "../img/jackets/m__black-track-jacket.png";
-
-
 const useStyles = makeStyles({
     table: {
         minWidth: 650,
@@ -32,23 +29,94 @@ const useStyles = makeStyles({
     }
 });
 
-function createData(name, url, size, quantity, price, total) {
-    return { name, url, size, quantity, price, total };
+const CartPage = () => {
+    const classes = useStyles();
+    const [cart, setCart] = useContext(CartContext);
+    const totalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
+
+    const handleRemoveItem = () => {
+        //make a new component ProductInCart and manage setCart inside it
+    }
+
+    return (
+        <>
+            <Wrapper>
+                <div className="container">
+                    <h1 className="title">My cart</h1>
+                    <TableContainer component={Paper}>
+                        <Table className={classes.table} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Product details</TableCell>
+                                    <TableCell align="right">Quantity</TableCell>
+                                    <TableCell align="right">Price</TableCell>
+                                    <TableCell align="right">Total</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {cart.map(item => (
+                                    <TableRow key={item.name}>
+                                        <TableCell component="th" scope="row">
+                                            <div className="details-wrap">
+                                                <img className="details-img" src={item.url} alt="product" />
+                                                <div className="details-container">
+                                                    <div className="name-container">
+                                                        <span className="details-name">{item.name}</span>
+                                                        <span>size: M</span></div>
+                                                    <button
+                                                        onClick={handleRemoveItem}
+                                                        className="details-delete">
+                                                        <DeleteIcon /> remove item
+                                                        </button>
+                                                </div>
+                                            </div>
+
+                                        </TableCell>
+                                        <TableCell align="right">1</TableCell>
+                                        <TableCell align="right">${item.price}</TableCell>
+                                        <TableCell align="right">${item.price}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+
+                    <SummaryContainer>
+                        <Paper>
+                            <h3 className="summary">Order summary</h3>
+                            <hr />
+                            <span>Items: {cart.length}</span>
+                            <span>Shipping</span>
+                            <span>$12</span>
+                            <FormControl>
+                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+                                    Shipping
+                                </InputLabel>
+                                <Select
+                                    defaultValue={4}
+                                >
+                                    <MenuItem value={4}><em>Standard</em></MenuItem>
+                                    <MenuItem value={2}>Cheap</MenuItem>
+                                    <MenuItem value={0}>Free</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <hr />
+                            <span>Total cost</span>
+                            <span>{totalCost}</span>
+                            <Button
+                                className="checkout-btn"
+                                variant="contained"
+                                color="primary">
+                                Checkout
+                        </Button>
+                        </Paper>
+                    </SummaryContainer>
+                </div>
+            </Wrapper>
+        </>
+
+    );
 }
-
-const rows = [
-    createData('Black track suit ', jacket1, 'M', 2, 6.0, 24.0),
-    createData('Red Pants', jacket1, 'S', 1, 3.0, 3.0),
-    createData('Slippers', jacket1, '42', 1, 3.0, 3.0),
-];
-
-const summary =
-{
-    id: 'summary',
-    quantity: 2,
-    total: 33,
-};
-
 
 const Wrapper = styled.div`
 margin: 0 auto;
@@ -116,91 +184,10 @@ padding-top: 5rem;
     margin-top: 1rem;
 }
 `
-
 const SummaryContainer = styled.div`
 margin: 0 auto;
 max-width: 1200px;
 padding-top: 5rem;
 `
 
-const ContactPage = () => {
-    const classes = useStyles();
-    const [products, setProducts] = useContext(ProductsContext);
-
-    return (
-        <>
-            <Wrapper>
-                <div className="container">
-                    <h1 className="title">My cart</h1>
-                    <TableContainer component={Paper}>
-                        <Table className={classes.table} aria-label="simple table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Product details</TableCell>
-                                    <TableCell align="right">Quantity</TableCell>
-                                    <TableCell align="right">Price</TableCell>
-                                    <TableCell align="right">Total</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {rows.map((row) => (
-                                    <TableRow key={row.name}>
-                                        <TableCell component="th" scope="row">
-                                            <div className="details-wrap">
-                                                <img className="details-img" src={row.url} alt="product" />
-                                                <div className="details-container">
-                                                    <div className="name-container">
-                                                        <span className="details-name">{row.name}</span>
-                                                        <span>size: {row.size}</span></div>
-                                                    <button className="details-delete"><DeleteIcon /> remove item</button>
-                                                </div>
-                                            </div>
-
-                                        </TableCell>
-                                        <TableCell align="right">{row.quantity}</TableCell>
-                                        <TableCell align="right">${row.price}</TableCell>
-                                        <TableCell align="right">${row.total}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-
-                    <SummaryContainer>
-                        <Paper>
-                            <h3 className="summary">Order summary</h3>
-                            <hr />
-                            <span>Items: {summary.quantity}</span>
-                            <span>Shipping</span>
-                            <span>$12</span>
-                            <FormControl>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Shipping
-                                </InputLabel>
-                                <Select
-                                    defaultValue={4}
-                                >
-                                    <MenuItem value={4}><em>Standard</em></MenuItem>
-                                    <MenuItem value={2}>Cheap</MenuItem>
-                                    <MenuItem value={0}>Free</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <hr />
-                            <span>Total cost</span>
-                            <span>$12</span>
-                            <Button
-                                className="checkout-btn"
-                                variant="contained"
-                                color="primary">
-                                Checkout
-                        </Button>
-                        </Paper>
-                    </SummaryContainer>
-                </div>
-            </Wrapper>
-        </>
-
-    );
-}
-
-export default ContactPage;
+export default CartPage;

@@ -5,7 +5,65 @@ import { makeStyles } from '@material-ui/core/styles';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { Paper } from '@material-ui/core';
 import { ProductsContext } from '../contexts/ProductsContext';
+import { CartContext } from '../contexts/CartContext';
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    background: '#18A0FB',
+    borderRadius: '50px',
+    margin: theme.spacing(1),
+    '&:hover': {
+      background: "#1373B4",
+    },
+  },
+}));
+
+const Product = ({ category, imgUrl, name, price, sale, id }) => {
+  const classes = useStyles();
+  const [cart, setCart] = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    const product = {
+      id: id,
+      name: name,
+      price: price,
+      url: imgUrl,
+    }
+    setCart(
+      prevState => [...prevState, product]
+    )
+  }
+
+  return (
+    <Container>
+      <Paper elevation={0} >
+        <div className="image-container">
+          <img className="product-img" src={imgUrl} alt="Product" />
+          <div className="icon icon--sale">-50%</div></div>
+        <div className="container-info">
+          <span className="category">{category}</span>
+          <span className="name">{name}</span>
+          <div className="container-row">
+            <div className="container-price">
+              <span className="price price--crossed">{price}</span>
+              <span className="price price--sale">{sale}</span>
+            </div>
+            <Button
+              data-key={id}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              onClick={handleAddToCart}
+              startIcon={<AddShoppingCartIcon />}
+            >
+              Add
+          </Button>
+          </div>
+        </div>
+      </Paper>
+    </Container >
+  )
+}
 
 const Container = styled.div`
   display: flex;
@@ -93,60 +151,5 @@ const Container = styled.div`
 
 }
 `
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    background: '#18A0FB',
-    borderRadius: '50px',
-    margin: theme.spacing(1),
-    '&:hover': {
-      background: "#1373B4",
-    },
-  },
-}));
-
-const Product = props => {
-  const classes = useStyles();
-  const [products, setProducts] = useContext(ProductsContext);
-
-
-  function handleAddClick(e) {
-    console.log(e.target.dataset.key)
-    setProducts(prevProducts => [
-      ...prevProducts, { id: 121, sex: 'm', name: 'Black track jacket', category: 'Jackets', price: 65, sale: 32, inCart: 1 },
-
-    ])
-  }
-
-  return (
-    <Container>
-      <Paper elevation={0} >
-        <div className="image-container">
-          <img className="product-img" src={props.imgUrl} alt="Product" />
-          <div className="icon icon--sale">-50%</div></div>
-        <div className="container-info">
-          <span className="category">{props.category}</span>
-          <span className="name">{props.name}</span>
-          <div className="container-row">
-            <div className="container-price">
-              <span className="price price--crossed">{props.price}</span>
-              <span className="price price--sale">{props.sale}</span>
-            </div>
-            <Button
-              data-key={props.id}
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              onClick={handleAddClick}
-              startIcon={<AddShoppingCartIcon />}
-            >
-              Add
-          </Button>
-          </div>
-        </div>
-      </Paper>
-    </Container >
-  )
-}
 
 export default Product

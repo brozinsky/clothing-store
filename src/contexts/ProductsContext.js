@@ -52,7 +52,7 @@ export const ProductsProvider = props => {
         { id: 21, sex: 'm', name: 'Red T-shirt', category: 'T-shirts', price: 24, sale: 12, imgUrl: tshirt1, inCart: 0, isNew: false },
 
         { id: 31, sex: 'f', name: 'Superstar sneakers', category: 'Shoes', price: '$85', sale: 43, imgUrl: shoes1, inCart: 1, isNew: false },
-        { id: 32, sex: 'm', name: 'Slippers', category: 'Shoes', price: 20, sale: 10, imgUrl: shoes2, inCart: 0, isNew: false },
+        { id: 32, sex: 'm', name: 'Slides', category: 'Shoes', price: 20, sale: 10, imgUrl: shoes2, inCart: 0, isNew: false },
 
         { id: 41, sex: 'm', name: 'Black flat cap', category: 'Hats', price: 20, sale: 10, imgUrl: hats1, inCart: 0, isNew: false },
         { id: 42, sex: 'm', name: 'Leather flat cap', category: 'Hats', price: 20, sale: 10, imgUrl: hats2, inCart: 0, isNew: false },
