@@ -18,133 +18,6 @@ import sm10 from "../img/socials/sm10.png";
 import sm11 from "../img/socials/sm11.png";
 import sm12 from "../img/socials/sm12.png";
 
-
-
-const ImageContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-`
-
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 320px;
-
-  .title{
-    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .title-span{
-      color:#3396C6;
-      font-weight: 400;
-  }
-
-  .image{
-      height: 18rem;
-  }
-`
-const Container = styled.div`
-  background: #ddd;
-  height: 20rem;
-  width: 100%;
-  display: flex;
-
-  .title{
-    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
-  }
-  .form{
-      display:flex;
-  }
-  .newsletter{
-    display: flex;
-    flex-direction: column;;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-  }
-  .stripes-container{
-    width: 35%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .stripes{
-    position: relative;
-      width: 25px;
-      height: 20rem;
-      background-color: #3396C6;
-      margin-bottom: 8rem;
-      margin-top: 8rem;
-      align-self: flex-start  ;
-
-
-      &:before{
-        content: '';
-        position: absolute;
-        top: -50px;
-        left: -53px;
-        width: 25px;
-        height: 20rem;
-        background-color: #3396C6;
-      }
-
-      &:after{
-        content: '';
-        position: absolute;
-        top: 25px;
-        left: 53px;
-        width: 25px;
-        height: 20rem;
-        background-color: #3396C6;
-      }
-  }
-`
-
-const Stripes = styled.div`
-      position: relative;
-      width: 80vw;
-      height: 25px;
-      background-color: #3396C6;
-      margin-bottom: 8rem;
-      margin-top: 8rem;
-      align-self: flex-start  ;
-
-
-      &:before{
-        content: '';
-        position: absolute;
-        top: -53px;
-        left: 0;
-        width: 100vw;
-        height: 25px;
-        background-color: #3396C6;
-      }
-
-      &:after{
-        content: '';
-        position: absolute;
-        top: 53px;
-        left: 0;
-        width: 100vw;
-        height: 25px;
-        background-color: #3396C6;
-      }
-`
 function Item(props) {
   return (
     <ImageContainer>
@@ -208,5 +81,128 @@ const Social = () => {
     </>
   )
 }
+
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`
+
+const Wrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 320px;
+
+  .title{
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .title-span{
+      color:#3396C6;
+      font-weight: 400;
+  }
+
+  .image{
+      height: 18rem;
+  }
+`
+const Container = styled.div`
+  background: #ddd;
+  height: 20rem;
+  width: 100%;
+  display: flex;
+
+  .title{
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+  .form{
+      display:flex;
+  }
+  .newsletter{
+    display: flex;
+    flex-direction: column;;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .stripes-container{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .stripes{
+    position: relative;
+      width: 25px;
+      height: 20rem;
+      background-color: #3396C6;
+      margin-bottom: 8rem;
+      margin-top: 8rem;
+      align-self: flex-start  ;
+
+      &:before{
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -53px;
+        width: 25px;
+        height: 20rem;
+        background-color: #3396C6;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 25px;
+        left: 53px;
+        width: 25px;
+        height: 20rem;
+        background-color: #3396C6;
+      }
+  }
+`
+const Stripes = styled.div`
+      position: relative;
+      width: 80vw;
+      height: 25px;
+      background-color: #3396C6;
+      margin-bottom: 6rem;
+      margin-top: 6rem;
+      align-self: flex-start  ;
+
+
+      &:before{
+        content: '';
+        position: absolute;
+        top: -53px;
+        left: 0;
+        width: 100vw;
+        height: 25px;
+        background-color: #3396C6;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 53px;
+        left: 0;
+        width: 100vw;
+        height: 25px;
+        background-color: #3396C6;
+      }
+`
 
 export default Social;

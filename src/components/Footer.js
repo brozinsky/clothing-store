@@ -11,6 +11,51 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 
+const Footer = () => {
+    return (
+        <Container>
+            <footer className='footer'>
+                <ul className="info">
+                    <li>FAQ</li>
+                    <li>Delivery</li>
+                    <li>Returns and exchanges</li>
+                    <li>Terms and conditions</li>
+                    <li>Privacy Policy</li>
+                    <li><NavLink to='/contact'>Contact</NavLink></li>
+                </ul>
+                <div className="social-container">
+                    <img className="social-logo" src={logo} alt="logo" />
+
+                    <h3 className="social-title">Follow us</h3>
+                    <ul className="social">
+                        <li className="social-link"><InstagramIcon /></li>
+                        <li className="social-link"><FacebookIcon /></li>
+                        <li className="social-link"><TwitterIcon /></li>
+                        <li className="social-link"><YouTubeIcon /></li>
+                    </ul>
+                </div>
+                <ul className="contact">
+                    <h3 className="contact-title">
+                        <EmailOutlinedIcon /> Contact
+                    </h3>
+                    <li>Lorem Street 25
+                    <br /> 01-2005 Ipsum
+                    <br /> Tel: 1-800-123-4567
+                    <br /> email : info@dummy.com </li>
+                    <li> <NavLink to='/contact' className="info-link">Use our contact form </NavLink></li>
+                </ul>
+                <div className="bottom">
+                    <hr className="hr" />
+                    <small className="copy">
+                        Created by
+                        <a className="copy-link" href="https://github.com/brozinsky"> brozinsky</a> &copy;
+                    2021</small>
+                </div>
+            </footer>
+        </Container>
+    );
+}
+
 const Container = styled.div`
   background: #ddd;
   height: 18rem;
@@ -93,13 +138,13 @@ const Container = styled.div`
   .contact{
     text-decoration: none;
     margin-right: 2rem;
+    line-height: 1.5rem;
     &-title{
         margin-bottom: 0.8rem;
     }
     &>li{
     list-style-type: none;
-    margin-bottom: 0.8rem;
-
+    margin-bottom: 1.5rem;
     }
   }
 
@@ -132,50 +177,5 @@ const Container = styled.div`
       margin-bottom: 0.5rem;
   }
 `
-
-const Footer = () => {
-    return (
-        <Container>
-            <footer className='footer'>
-                <ul className="info">
-                    <li>FAQ</li>
-                    <li>Delivery</li>
-                    <li>Returns and exchanges</li>
-                    <li>Terms and conditions</li>
-                    <li>Privacy Policy</li>
-                    <li><NavLink to='/contact'>Contact</NavLink></li>
-                </ul>
-                <div className="social-container">
-                    <img className="social-logo" src={logo} alt="logo" />
-
-                    <h3 className="social-title">Follow us</h3>
-                    <ul className="social">
-                        <li className="social-link"><InstagramIcon /></li>
-                        <li className="social-link"><FacebookIcon /></li>
-                        <li className="social-link"><TwitterIcon /></li>
-                        <li className="social-link"><YouTubeIcon /></li>
-                    </ul>
-                </div>
-                <ul className="contact">
-                    <h3 className="contact-title">
-                        <EmailOutlinedIcon /> Contact
-                    </h3>
-                    <li>Lorem Street 25
-                    <br /> 01-2005 Ipsum
-                    <br /> Tel: 1-800-123-4567
-                    <br /> email : info@dummy.com </li>
-                    <li> <NavLink to='/contact' className="info-link">Use our contact form </NavLink></li>
-                </ul>
-                <div className="bottom">
-                    <hr className="hr" />
-                    <small className="copy">
-                        Created by
-                        <a className="copy-link" href="https://github.com/brozinsky"> brozinsky</a> &copy;
-                    2021</small>
-                </div>
-            </footer>
-        </Container>
-    );
-}
 
 export default Footer;

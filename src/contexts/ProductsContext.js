@@ -59,7 +59,7 @@ export const ProductsProvider = props => {
         {
             id: 5, sex: 'm', name: 'Blue track jacket',
             category: 'Jackets', price: 75, sale: null,
-            imgUrl: jacket5, isNew: false,
+            imgUrl: jacket5, isNew: true,
             isOnSale: false
         },
         {
@@ -122,7 +122,7 @@ export const ProductsProvider = props => {
         {
             id: 31, sex: 'f', name: 'Superstar sneakers',
             category: 'Shoes', price: '$85', sale: null,
-            imgUrl: shoes1, isNew: false,
+            imgUrl: shoes1, isNew: true,
             isOnSale: false
         },
         {

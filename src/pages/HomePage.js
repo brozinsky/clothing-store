@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styled from "styled-components";
 
 import Tabs from '../components/Tabs';
 import Header from '../components/Header';
@@ -17,7 +18,7 @@ const tabs = [
 ]
 
 const HomePage = () => {
-    const [products, setProducts] = useContext(ProductsContext);
+    const [products] = useContext(ProductsContext);
 
     const newProducts = products
         .filter(product => (product.isNew === true))
@@ -39,18 +40,40 @@ const HomePage = () => {
         <>
             <Header />
             <Tabs name1={tabs[0].name} name2={tabs[1].name} />
-            <Grid item sm={12}
-                container
-                direction="row"
-                justify="space-evenly"
-                alignItems="flex-start"
-            >
-                <h2>Check our new products:</h2>
-                {newProducts}
-            </Grid>
+            <NewProductsSection>
+                <NewTitle>Check our <span>newest</span> products:</NewTitle>
+                <Grid item sm={12}
+                    container
+                    direction="row"
+                    justify="space-evenly"
+                    alignItems="flex-start"
+                >
+                    {newProducts}
+                </Grid>
+            </NewProductsSection>
             <Social />
         </>
     );
 }
+
+const NewProductsSection = styled.section`
+display: flex;
+flex-direction: column;
+margin: 0 auto;
+max-width: 1200px;
+`
+const NewTitle = styled.h2`
+text-align: center;
+margin: 1rem 0 2rem 0;
+font-size: 2rem;
+font-weight: 300;
+text-transform: uppercase;
+
+& span{
+    color: #3396C6;
+    font-weight: 500;
+}
+`
+
 
 export default HomePage;
