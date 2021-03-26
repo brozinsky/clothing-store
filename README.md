@@ -77,7 +77,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Built With
 
 - [React](https://reactjs.org/)
-- [React-Router]https://github.com/ReactTraining/react-router)
+- [React-Router](https://github.com/ReactTraining/react-router)
 - [styled-components](https://styled-components.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Material-UI](https://material-ui.com/)
