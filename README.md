@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+#CLOTHING STORE
+
+An e-commerce static website template. Loading of products and data storage from Firebase. App has a cart to add/remove items, it shows the total price and sends user to checkout. Routes implemented with React router, including seamlessly moving between pages. Styling made with Styled Components with the use of Material UI elements. Animations made with Framer Motion. Website design made in Figma.
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +72,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Built With
+
+- [React](https://reactjs.org/)
+- [React-Router]https://github.com/ReactTraining/react-router)
+- [styled-components](https://styled-components.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Material-UI](https://material-ui.com/)
+- [Formik](https://formik.org/)
+- [Firebase](https://firebase.google.com/)
+- [Node.js](https://nodejs.org/en/)
