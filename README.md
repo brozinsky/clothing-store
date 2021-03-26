@@ -1,4 +1,4 @@
-#CLOTHING STORE
+# CLOTHING STORE
 
 An e-commerce static website template. Loading of products and data storage from Firebase. App has a cart to add/remove items, it shows the total price and sends user to checkout. Routes implemented with React router, including seamlessly moving between pages. Styling made with Styled Components with the use of Material UI elements. Animations made with Framer Motion. Website design made in Figma.
 
