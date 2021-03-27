@@ -10,10 +10,10 @@ import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
 
-import React, { useState, useEffect } from 'react';
+const apiKey = process.env.API_KEY;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBpmN0_1b8zgk_4WwTEJlC5kgVmOlzYNQU",
+    apiKey: { apiKey },
     authDomain: "clothing-store-402a8.firebaseapp.com",
     databaseURL: "https://clothing-store-402a8-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "clothing-store-402a8",
@@ -25,59 +25,4 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore()
-// db.settings({ timestampsInSnapshots: true });
-
-// db.collection('jackets').get().then((snapshot) => {
-//   snapshot.docs.forEach(doc => {
-//     console.log(doc)
-//   })
-// })
 export const ref = firebase.firestore().collection("products")
-
-
-const App = () => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState([])
-
-    const ref = firebase.firestore().collection("products")
-
-
-    const getProducts = () => {
-        setLoading(true);
-        ref.onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            })
-            setProducts(items);
-            setLoading(false);
-            console.log(items)
-        })
-    }
-
-    useEffect(() => {
-        getProducts();
-
-    }, [])
-
-    if (loading) {
-        return <h1>Loading...</h1>
-    }
-
-    return (
-        <div >
-            {
-                products.map(item => {
-                    return (
-                        <div className="blog-container">
-                            <h4>{item.name}</h4>
-                            <p>{item.price}</p>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );
-}
-
