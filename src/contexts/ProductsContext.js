@@ -121,7 +121,7 @@ export const ProductsProvider = props => {
 
         {
             id: 31, sex: 'f', name: 'Superstar sneakers',
-            category: 'Shoes', price: '$85', sale: null,
+            category: 'Shoes', price: 85, sale: null,
             imgUrl: shoes1, isNew: true,
             isOnSale: false
         },
@@ -169,14 +169,11 @@ export const ProductsProvider = props => {
             imgUrl: other3, isNew: false,
             isOnSale: false
         },
-
     ])
 
     return (
         <ProductsContext.Provider value={[products, setProducts]}>
             {props.children}
         </ProductsContext.Provider>
-
-
     );
 }

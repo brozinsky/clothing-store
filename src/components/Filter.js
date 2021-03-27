@@ -10,11 +10,8 @@ import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 
 const Category = styled.ul`

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { ProductsContext } from '../contexts/ProductsContext';
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
 
 import Product from '../components/Product';
 import Filter from '../components/Filter';
@@ -30,17 +32,22 @@ const ShopPage = props => {
 
     return (
         <>
-            <Wrapper>
-                <Filter />
-                <Grid item sm={12}
-                    container
-                    direction="row"
-                    justify="space-evenly"
-                    alignItems="flex-start"
-                >
-                    {renderedProducts}
-                </Grid>
-            </Wrapper>
+            <motion.div
+                variants={pageAnimation}
+                initial='initial'
+                animate='animate'>
+                <Wrapper>
+                    <Filter />
+                    <Grid item sm={12}
+                        container
+                        direction="row"
+                        justify="space-evenly"
+                        alignItems="flex-start"
+                    >
+                        {renderedProducts}
+                    </Grid>
+                </Wrapper>
+            </motion.div>
         </>
     );
 }
