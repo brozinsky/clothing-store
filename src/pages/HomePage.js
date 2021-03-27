@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 
 import Tabs from '../components/Tabs';
 import Header from '../components/Header';
 import Product from '../components/Product';
 import Social from '../components/Social';
-import { ProductsContext } from '../contexts/ProductsContext';
 
 import Grid from '@material-ui/core/Grid';
 
 import menTab from "../img/tab-men.png";
 import womenTab from "../img/tab-women.png";
+
+import { ref } from "../firebase";
+
 
 const tabs = [
     { id: 1, name: "Women's", imgUrl: womenTab },
@@ -18,14 +20,35 @@ const tabs = [
 ]
 
 const HomePage = () => {
-    const [products] = useContext(ProductsContext);
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState([])
 
-    const newProducts = products
-        .filter(product => (product.isNew === true))
+    const getProducts = () => {
+        setLoading(true);
+        ref.onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data());
+            })
+            setProducts(items);
+            setLoading(false);
+            console.log(items)
+        })
+    }
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
+    if (loading) {
+        return <h2>Loading...</h2>
+    }
+
+    const newProducts = products.filter(product => (product.isNew === true))
         .map(product => (
             <Product
-                key={product.id}
-                id={product.id}
+                key={product.itemId}
+                id={product.itemId}
                 name={product.name}
                 category={product.category}
                 price={product.price}
@@ -34,7 +57,7 @@ const HomePage = () => {
                 isOnSale={product.isOnSale}
                 isNew={product.isNew}
             />
-        ));
+        ))
 
     return (
         <>
@@ -74,6 +97,4 @@ text-transform: uppercase;
     font-weight: 500;
 }
 `
-
-
 export default HomePage;

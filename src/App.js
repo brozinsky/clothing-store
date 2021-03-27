@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <>
+
       <GlobalStyle />
       <Router>
         <ProductsProvider>
