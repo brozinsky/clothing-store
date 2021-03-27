@@ -8,16 +8,7 @@ import Social from '../components/Social';
 
 import Grid from '@material-ui/core/Grid';
 
-import menTab from "../img/tab-men.png";
-import womenTab from "../img/tab-women.png";
-
 import { ref } from "../firebase";
-
-
-const tabs = [
-    { id: 1, name: "Women's", imgUrl: womenTab },
-    { id: 2, name: "Men's", imgUrl: menTab },
-]
 
 const HomePage = () => {
     const [products, setProducts] = useState([])
@@ -32,7 +23,6 @@ const HomePage = () => {
             })
             setProducts(items);
             setLoading(false);
-            console.log(items)
         })
     }
 
@@ -62,7 +52,7 @@ const HomePage = () => {
     return (
         <>
             <Header />
-            <Tabs name1={tabs[0].name} name2={tabs[1].name} />
+            <Tabs />
             <NewProductsSection>
                 <NewTitle>Check our <span>newest</span> products:</NewTitle>
                 <Grid item sm={12}

@@ -4,8 +4,46 @@ import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
-import img404Url from "../img/404.png";
+const useStyles = makeStyles((theme) => ({
+    button: {
+        background: '#18A0FB',
+        borderRadius: '20px',
+        margin: theme.spacing(1),
+        marginTop: '2.5rem',
+        scale: '0.6',
+        width: '450px',
+        '&:hover': {
+            background: "#1373B4",
+        },
+    },
+}));
 
+const ErrorPage = () => {
+    const classes = useStyles();
+    return (
+        <>
+            <Wrapper>
+                <ImgContaineer>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/404.png?alt=media&token=ce3b6eb3-6929-49a6-9a64-0d7cfed144d6" alt="" />
+                </ImgContaineer>
+                <Message>
+                    <h1>404</h1>
+                    <span>Are you lost my friend?</span>
+                    <NavLink to='/'>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                        >
+                            Take me back
+                    </Button>
+                    </NavLink>
+
+                </Message>
+            </Wrapper>
+        </>
+    );
+}
 
 const Wrapper = styled.div`
 margin: 0 auto;
@@ -79,45 +117,5 @@ span{
     font-size: 2.5rem;
 }
 `
-const useStyles = makeStyles((theme) => ({
-    button: {
-        background: '#18A0FB',
-        borderRadius: '20px',
-        margin: theme.spacing(1),
-        marginTop: '2.5rem',
-        scale: '0.6',
-        width: '450px',
-        '&:hover': {
-            background: "#1373B4",
-        },
-    },
-}));
-
-const ErrorPage = () => {
-    const classes = useStyles();
-    return (
-        <>
-            <Wrapper>
-                <ImgContaineer>
-                    <img src={img404Url} alt="" />
-                </ImgContaineer>
-                <Message>
-                    <h1>404</h1>
-                    <span>Are you lost my friend?</span>
-                    <NavLink to='/'>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                        >
-                            Take me back
-                    </Button>
-                    </NavLink>
-
-                </Message>
-            </Wrapper>
-        </>
-    );
-}
 
 export default ErrorPage;

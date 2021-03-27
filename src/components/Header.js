@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
-
 import Carousel from 'react-material-ui-carousel'
-
-import caro1 from "../img/header/caro-sale.png";
-import caro2 from "../img/header/caro-arrivals.png";
-import caro3 from "../img/header/caro-trailer.png";
+import { imgRef } from "../firebase";
 
 function Item(props) {
     return (
@@ -16,11 +12,33 @@ function Item(props) {
 }
 
 const Social = () => {
+    const [imgUrl, setImgUrl] = useState([])
+    const [loading, setLoading] = useState([])
 
-    var images = [
-        { imgUrl: caro1 },
-        { imgUrl: caro2 },
-        { imgUrl: caro3 }
+    const getProducts = () => {
+        setLoading(true);
+        imgRef.onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data().imgUrl);
+            })
+            setImgUrl(items);
+            setLoading(false);
+        })
+    }
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
+    if (loading) {
+        return <h2>Loading...</h2>
+    }
+
+    let images = [
+        { imgUrl: imgUrl[0] },
+        { imgUrl: imgUrl[1] },
+        { imgUrl: imgUrl[2] }
     ]
 
     return (

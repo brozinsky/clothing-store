@@ -5,8 +5,6 @@ import { NavLink } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import menTab from "../img/tab-men.png";
-import womenTab from "../img/tab-women.png";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -26,10 +24,10 @@ const Tabs = (props) => {
         <>
             <Container >
                 <div className="tab tab-1" style={{
-                    backgroundImage: `url(${womenTab})`
+                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
                 }} >
                     <div className="container-1">
-                        <h2 className="title">{props.name1}
+                        <h2 className="title">Women's
                             <br />
                             <span className="title-thin"> Collection</span>
                         </h2>
@@ -45,10 +43,10 @@ const Tabs = (props) => {
                     </div>
                 </div>
                 <div className="tab tab-2" style={{
-                    backgroundImage: `url(${menTab})`
+                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-men.png?alt=media&token=3c30e116-e684-4392-afc8-4bc309d3a40e)`
                 }} >
                     <div className="container-2">
-                        <h2 className="title">{props.name2}
+                        <h2 className="title">Men's
                             <br />
                             <span className="title-thin"> Collection</span>
                         </h2>
