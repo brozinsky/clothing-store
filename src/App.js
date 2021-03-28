@@ -14,7 +14,6 @@ import ErrorPage from './pages/ErrorPage';
 
 import { createGlobalStyle } from 'styled-components'
 
-
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -46,7 +45,6 @@ function App() {
               <Route path="/shop/sale"><ShopPage value='onSale' /></Route>
               <Route path="/shop/men"><ShopPage value='m' /></Route>
               <Route path="/shop/women"><ShopPage value='f' /></Route>
-
               <Route path="/contact" component={ContactPage} />
               <Route path="/cart" component={CartPage} />
               <Route component={ErrorPage} />

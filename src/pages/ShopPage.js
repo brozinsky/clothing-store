@@ -6,6 +6,7 @@ import { ref } from "../firebase";
 
 import Product from '../components/Product';
 import Filter from '../components/Filter';
+import StripesBg1 from '../components/svg/StripesBg1';
 
 import Grid from '@material-ui/core/Grid';
 import styled from "styled-components";
@@ -60,6 +61,7 @@ const ShopPage = props => {
                 variants={pageAnimation}
                 initial='initial'
                 animate='animate'>
+                <StripesBg1 />
                 <Wrapper>
                     <Filter />
                     <Grid item sm={12}
