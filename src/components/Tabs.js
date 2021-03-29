@@ -2,9 +2,10 @@ import React from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import { NavLink } from "react-router-dom";
-
+import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 
+import StripesThin from "./svg/StripesThin";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -17,20 +18,48 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Tabs = (props) => {
+const Tabs = () => {
     const classes = useStyles();
 
     return (
         <>
             <Container >
-                <div className="tab tab-1" style={{
-                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
-                }} >
+                <motion.div
+                    initial={{
+                        x: -100,
+                        opacity: 0,
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                    }}
+                    transition={{
+                        delay: 0,
+                        duration: 0.7,
+                        ease: 'linear'
+                    }}
+                    className="tab tab-1" style={{
+                        backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
+                    }} >
                     <div className="container-1">
-                        <h2 className="title">Women's
+                        <motion.h2
+                            initial={{
+                                y: -20,
+                                opacity: 0,
+                            }}
+                            animate={{
+                                y: 0,
+                                opacity: 1,
+                            }}
+                            transition={{
+                                delay: 0.7,
+                                duration: 0.4,
+                                ease: 'linear'
+                            }}
+                            className="title">Women's
                             <br />
                             <span className="title-thin"> Collection</span>
-                        </h2>
+                        </motion.h2>
                         <NavLink to='/shop/women'>
                             <Button
                                 className={classes.button}
@@ -41,15 +70,43 @@ const Tabs = (props) => {
                             >Shop now</Button>
                         </NavLink>
                     </div>
-                </div>
-                <div className="tab tab-2" style={{
-                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-men.png?alt=media&token=3c30e116-e684-4392-afc8-4bc309d3a40e)`
-                }} >
+                </motion.div>
+                <motion.div
+                    initial={{
+                        x: 100,
+                        opacity: 0,
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                    }}
+                    transition={{
+                        delay: 0,
+                        duration: 0.7,
+                        ease: 'linear'
+                    }}
+                    className="tab tab-2" style={{
+                        backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-men.png?alt=media&token=3c30e116-e684-4392-afc8-4bc309d3a40e)`
+                    }} >
                     <div className="container-2">
-                        <h2 className="title">Men's
+                        <motion.h2
+                            initial={{
+                                y: -20,
+                                opacity: 0,
+                            }}
+                            animate={{
+                                y: 0,
+                                opacity: 1,
+                            }}
+                            transition={{
+                                delay: 0.7,
+                                duration: 0.4,
+                                ease: 'linear'
+                            }}
+                            className="title">Men's
                             <br />
                             <span className="title-thin"> Collection</span>
-                        </h2>
+                        </motion.h2>
                         <NavLink to='/shop/men'>
                             <Button
                                 className={classes.button}
@@ -59,9 +116,9 @@ const Tabs = (props) => {
                             >Shop now</Button>
                         </NavLink>
                     </div>
-                </div>
+                </motion.div>
             </Container >
-            <Stripes />
+            <StripesThin />
         </>
     )
 }
@@ -120,36 +177,6 @@ const Container = styled.div`
     top: 40%;
     justify-content: left;
   }
-`
-
-const Stripes = styled.div`
-      position: relative;
-      width: 80vw;
-      height: 10px;
-      background-color: #3396C6;
-      margin-bottom: 50px;
-
-      &:before{
-        content: '';
-        position: absolute;
-        top: -23px;
-        left: 0;
-        width: 100vw;
-        height: 10px;
-        background-color: #3396C6;
-        overflow: hidden;
-      }
-
-      &:after{
-        content: '';
-        position: absolute;
-        top: 23px;
-        left: 0;
-        width: 100vw;
-        height: 10px;
-        background-color: #3396C6;
-        overflow: hidden;
-      }
 `
 
 export default Tabs;

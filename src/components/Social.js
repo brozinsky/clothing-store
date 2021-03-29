@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 
 import Carousel from 'react-material-ui-carousel'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+
+import StripesThick from "./svg/StripesThick";
 
 import sm1 from "../img/socials/sm1.png";
 import sm2 from "../img/socials/sm2.png";
@@ -30,7 +33,6 @@ function Item(props) {
 }
 
 const Social = () => {
-
   const images = [
     {
       imgUrl1: sm1,
@@ -55,7 +57,7 @@ const Social = () => {
 
   return (
     <>
-      <Stripes />
+      <StripesThick />
       <Wrapper>
         <h2 className="title">Use hashtag <span className="title-span">#slavclothing</span>  and show us your style</h2>
         <Carousel indicators={false} animation='fade'>
@@ -92,7 +94,7 @@ const ImageContainer = styled.div`
   justify-content: space-evenly;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -173,36 +175,6 @@ const Container = styled.div`
         background-color: #3396C6;
       }
   }
-`
-const Stripes = styled.div`
-      position: relative;
-      width: 80vw;
-      height: 25px;
-      background-color: #3396C6;
-      margin-bottom: 6rem;
-      margin-top: 6rem;
-      align-self: flex-start  ;
-
-
-      &:before{
-        content: '';
-        position: absolute;
-        top: -53px;
-        left: 0;
-        width: 100vw;
-        height: 25px;
-        background-color: #3396C6;
-      }
-
-      &:after{
-        content: '';
-        position: absolute;
-        top: 53px;
-        left: 0;
-        width: 100vw;
-        height: 25px;
-        background-color: #3396C6;
-      }
 `
 
 export default Social;
