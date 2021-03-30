@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from "styled-components";
 import { motion } from 'framer-motion';
 
@@ -21,7 +21,9 @@ import sm10 from "../img/socials/sm10.png";
 import sm11 from "../img/socials/sm11.png";
 import sm12 from "../img/socials/sm12.png";
 
+
 function Item(props) {
+
   return (
     <ImageContainer>
       <img className='image' src={props.image.imgUrl1} alt='social media' />
@@ -33,6 +35,7 @@ function Item(props) {
 }
 
 const Social = () => {
+
   const images = [
     {
       imgUrl1: sm1,
@@ -60,7 +63,7 @@ const Social = () => {
       <StripesThick />
       <Wrapper>
         <h2 className="title">Use hashtag <span className="title-span">#slavclothing</span>  and show us your style</h2>
-        <Carousel indicators={false} animation='fade'>
+        <Carousel id="carousel" indicators={false} animation='fade'>
           {
             images.map((image, i) => <Item key={i} image={image} />)
           }

@@ -6,13 +6,27 @@ import Header from '../components/Header';
 import Product from '../components/Product';
 import Social from '../components/Social';
 
+import { useScroll } from "../components//useScroll";
+
 import Grid from '@material-ui/core/Grid';
 
 import { ref } from "../firebase";
+import { motion } from 'framer-motion';
+
+const fade = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { ease: [0.42, 0, 0.58, 1], duration: 0.5, repeat: 0 },
+    },
+};
+
+
 
 const HomePage = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState([])
+    const [element, controls] = useScroll();
 
     const getProducts = () => {
         setLoading(true);
@@ -53,7 +67,12 @@ const HomePage = () => {
         <>
             <Header />
             <Tabs />
-            <NewProductsSection>
+            <NewProductsSection
+                variants={fade}
+                animate={controls}
+                initial="hidden"
+                ref={element}
+            >
                 <NewTitle>Check our <span>newest</span> products:</NewTitle>
                 <Grid item sm={12}
                     container
@@ -69,7 +88,8 @@ const HomePage = () => {
     );
 }
 
-const NewProductsSection = styled.section`
+
+const NewProductsSection = styled(motion.section)`
 display: flex;
 flex-direction: column;
 margin: 0 auto;
