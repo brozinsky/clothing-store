@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from "styled-components";
+import { motion } from 'framer-motion';
+import { ref } from "../firebase";
 
 import Tabs from '../components/Tabs';
 import Header from '../components/Header';
 import Product from '../components/Product';
 import Social from '../components/Social';
-
 import { useScroll } from "../components//useScroll";
-
 import Grid from '@material-ui/core/Grid';
-
-import { ref } from "../firebase";
-import { motion } from 'framer-motion';
 
 const fade = {
     hidden: { opacity: 0 },
@@ -21,12 +18,10 @@ const fade = {
     },
 };
 
-
-
 const HomePage = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState([])
-    const [element, controls] = useScroll();
+    const [element, controls] = useScroll(fade.show);
 
     const getProducts = () => {
         setLoading(true);
@@ -71,23 +66,22 @@ const HomePage = () => {
                 variants={fade}
                 animate={controls}
                 initial="hidden"
-                ref={element}
-            >
+                ref={element}>
                 <NewTitle>Check our <span>newest</span> products:</NewTitle>
                 <Grid item sm={12}
                     container
                     direction="row"
                     justify="space-evenly"
                     alignItems="flex-start"
-                >
-                    {newProducts}
+                >{newProducts}
                 </Grid>
             </NewProductsSection>
-            <Social />
+            <Social
+
+            />
         </>
     );
 }
-
 
 const NewProductsSection = styled(motion.section)`
 display: flex;
@@ -103,7 +97,7 @@ font-weight: 300;
 text-transform: uppercase;
 
 & span{
-    color: #3396C6;
+                    color: #3396C6;
     font-weight: 500;
 }
 `
