@@ -12,7 +12,7 @@ const swipe = {
 };
 
 const StripesThin = () => {
-    const [element, controls] = useScroll(swipe.show);
+    const [element, controls] = useScroll(swipe.show, 0.6);
 
     return (
         <div ref={element} >

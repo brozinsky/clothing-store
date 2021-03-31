@@ -14,7 +14,7 @@ const swipe = {
 };
 
 const StripesThick = () => {
-    const [element, controls] = useScroll(swipe.show);
+    const [element, controls] = useScroll(swipe.show, 0);
 
     return (
         <div ref={element} >

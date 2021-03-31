@@ -21,7 +21,7 @@ const fade = {
 const HomePage = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState([])
-    const [element, controls] = useScroll(fade.show);
+    const [element, controls] = useScroll(fade.show, 0.6);
 
     const getProducts = () => {
         setLoading(true);
