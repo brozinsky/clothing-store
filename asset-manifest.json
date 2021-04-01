@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.js": "/clothing-store/static/js/main.54c30604.chunk.js",
+    "main.js.map": "/clothing-store/static/js/main.54c30604.chunk.js.map",
+    "runtime-main.js": "/clothing-store/static/js/runtime-main.90c7491a.js",
+    "runtime-main.js.map": "/clothing-store/static/js/runtime-main.90c7491a.js.map",
+    "static/js/2.85a065b1.chunk.js": "/clothing-store/static/js/2.85a065b1.chunk.js",
+    "static/js/2.85a065b1.chunk.js.map": "/clothing-store/static/js/2.85a065b1.chunk.js.map",
+    "index.html": "/clothing-store/index.html",
+    "static/js/2.85a065b1.chunk.js.LICENSE.txt": "/clothing-store/static/js/2.85a065b1.chunk.js.LICENSE.txt",
+    "static/media/b_logo.76a998cd.svg": "/clothing-store/static/media/b_logo.76a998cd.svg",
+    "static/media/fanny-pack-adi.ffa8d144.png": "/clothing-store/static/media/fanny-pack-adi.ffa8d144.png",
+    "static/media/fanny-pack-fila.201779aa.png": "/clothing-store/static/media/fanny-pack-fila.201779aa.png",
+    "static/media/fanny-pack-nike.bc4509a2.png": "/clothing-store/static/media/fanny-pack-nike.bc4509a2.png",
+    "static/media/m__black-flat-cap.e4c4c6fe.png": "/clothing-store/static/media/m__black-flat-cap.e4c4c6fe.png",
+    "static/media/m__black-leather-flat-cap.f4d97ec0.png": "/clothing-store/static/media/m__black-leather-flat-cap.f4d97ec0.png",
+    "static/media/m__black-track-jacket.0757feb2.png": "/clothing-store/static/media/m__black-track-jacket.0757feb2.png",
+    "static/media/m__black-training-jacket.96067407.png": "/clothing-store/static/media/m__black-training-jacket.96067407.png",
+    "static/media/m__black-training-pants.5c4cf8c1.png": "/clothing-store/static/media/m__black-training-pants.5c4cf8c1.png",
+    "static/media/m__black-ushanka.450b51c9.png": "/clothing-store/static/media/m__black-ushanka.450b51c9.png",
+    "static/media/m__blue-training-pants.e3a047f6.png": "/clothing-store/static/media/m__blue-training-pants.e3a047f6.png",
+    "static/media/m__red-training-jacket.5dc44744.png": "/clothing-store/static/media/m__red-training-jacket.5dc44744.png",
+    "static/media/m__slides.8b77ac2e.png": "/clothing-store/static/media/m__slides.8b77ac2e.png",
+    "static/media/m__track-jacket.67697cd7.png": "/clothing-store/static/media/m__track-jacket.67697cd7.png",
+    "static/media/m_red-tshirt.e997597d.jpg": "/clothing-store/static/media/m_red-tshirt.e997597d.jpg",
+    "static/media/w__black-joggers.e85273ae.png": "/clothing-store/static/media/w__black-joggers.e85273ae.png",
+    "static/media/w__black-track-pants.436207d5.png": "/clothing-store/static/media/w__black-track-pants.436207d5.png",
+    "static/media/w__blue-track-jacket.3ec50baa.png": "/clothing-store/static/media/w__blue-track-jacket.3ec50baa.png",
+    "static/media/w__firebird-track-jacket.29389357.png": "/clothing-store/static/media/w__firebird-track-jacket.29389357.png",
+    "static/media/w__pink-joggers.b2726750.png": "/clothing-store/static/media/w__pink-joggers.b2726750.png",
+    "static/media/w__red-track-jacket.8f98e77e.png": "/clothing-store/static/media/w__red-track-jacket.8f98e77e.png",
+    "static/media/w__red-track-pants.20253405.png": "/clothing-store/static/media/w__red-track-pants.20253405.png",
+    "static/media/w__superstar-sneakers.ece77c69.png": "/clothing-store/static/media/w__superstar-sneakers.ece77c69.png",
+    "static/media/w_logo.d76c8f00.svg": "/clothing-store/static/media/w_logo.d76c8f00.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90c7491a.js",
+    "static/js/2.85a065b1.chunk.js",
+    "static/js/main.54c30604.chunk.js"
+  ]
+}
