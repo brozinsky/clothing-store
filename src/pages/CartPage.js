@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import styled from "styled-components";
+import { pageAnimation } from '../animation';
+import { motion } from 'framer-motion';
+
+import Footer from '../components/Footer';
 import ProductInCart from '../components/ProductInCart';
 
 import { makeStyles } from '@material-ui/core/styles';
-
-import Footer from '../components/Footer';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -14,35 +16,54 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
-import styled from "styled-components";
-
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        maxWidth: 700,
+        margin: '1rem auto',
+    },
+    tableContainer: {
+        maxWidth: 800,
     },
     summary: {
         width: '25rem',
         marginLeft: '3rem',
-    }
+    },
+    paper: {
+        margin: '2rem',
+        padding: '2rem',
+        maxWidth: '1200px',
+    },
+    button: {
+        width: '100%',
+    },
 });
 
 const CartPage = () => {
     const classes = useStyles();
     const [cart, setCart] = useContext(CartContext);
-    const totalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
+    const [shipping, setShipping] = useState(4);
+    const cost = cart.reduce((acc, curr) => acc + curr.price, 0);
+
+    const handleChange = (e) => {
+        setShipping(e.target.value);
+    };
 
     return (
         <>
-            <Wrapper>
+            <Wrapper
+                variants={pageAnimation}
+                initial='initial'
+                animate='animate'
+                exit='exit'
+            >
+                <Title>My cart</Title>
                 <div className="container">
-                    <h2 className="title">My cart</h2>
-                    <TableContainer component={Paper}>
+                    <TableContainer className={classes.tableContainer} component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -53,41 +74,46 @@ const CartPage = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {cart.map(item => (
-                                    <ProductInCart
-                                        id={item.id}
-                                        name={item.name}
-                                        url={item.url}
-                                        price={item.price} />
-                                ))}
+                                {cart.length <= 0 ?
+                                    <Empty>Your cart is empty</Empty >
+                                    :
+                                    cart.map(item => (
+                                        <ProductInCart
+                                            id={item.id}
+                                            name={item.name}
+                                            url={item.url}
+                                            price={item.price} />))
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
 
                     <SummaryContainer>
-                        <Paper>
-                            <h3 className="summary">Order summary</h3>
+                        <Paper className={classes.paper}>
+                            <Summary>Order summary</Summary>
                             <hr />
-                            <span>Items: {cart.length}</span>
-                            <span>Shipping</span>
-                            <span>$12</span>
-                            <FormControl>
-                                <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-                                    Shipping
+                            <Item>Items: {cart.length}</Item>
+                            <Sum>Cost: ${cost}</Sum>
+                            <hr />
+                            <FormWrap>
+                                <FormControl >
+                                    <InputLabel
+                                        shrink id="demo-simple-select-placeholder-label-label">
+                                        Shipping
                                 </InputLabel>
-                                <Select
-                                    defaultValue={4}
-                                >
-                                    <MenuItem value={4}><em>Standard</em></MenuItem>
-                                    <MenuItem value={2}>Cheap</MenuItem>
-                                    <MenuItem value={0}>Free</MenuItem>
-                                </Select>
-                            </FormControl>
+                                    <Select onChange={handleChange}
+                                        defaultValue={4}
+                                    >
+                                        <MenuItem value={4}><em>Standard: $4</em></MenuItem>
+                                        <MenuItem value={2}>Cheap: $2</MenuItem>
+                                        <MenuItem value={8}>Premium: $8</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </FormWrap>
+                            <Sum>Shipping: <span>${shipping}</span></Sum>
                             <hr />
-                            <span>Total cost</span>
-                            <span>{totalCost}</span>
-                            <Button
-                                className="checkout-btn"
+                            <Total>Total cost: <span>${cost + shipping}</span></Total>
+                            <Button className={classes.button}
                                 variant="contained"
                                 color="primary">
                                 Checkout
@@ -102,7 +128,7 @@ const CartPage = () => {
     );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
 margin: 0 auto;
 max-width: 1200px;
 padding-top: 5rem;
@@ -110,22 +136,11 @@ padding-top: 5rem;
 .container{
     padding-bottom: 25rem;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.title{
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-size: 1.7rem;
-}
-.summary{
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-}
 .details-img{
     height: 100px;
 }
@@ -163,15 +178,61 @@ padding-top: 5rem;
   scale: 0.6;
 }
 }
-.checkout-btn{
-    margin: 0 auto;
-    margin-top: 1rem;
-}
+
 `
 const SummaryContainer = styled.div`
 margin: 0 auto;
-max-width: 1200px;
-padding-top: 5rem;
 `
+const Title = styled.h2`
+text-align: center;
+margin: 1rem 0 2rem 0;
+font-size: 2rem;
+font-weight: 300;
+text-transform: uppercase;
+width: 100%;
+`
+const Empty = styled.p`
+text-align: center;
+margin: 2rem 0 ;
+width: 100%;
+font-size: 1.3rem;
+font-weight: 300;
+`
+const Total = styled.h4`
+text-align: center;
+margin: 1rem 0 ;
+font-size: 1.4rem;
+font-weight: 400;
+text-transform: uppercase;
+`
+const Item = styled.h5`
+text-align: center;
+margin: 1rem 0;
+font-size: 1rem;
+font-weight: 400;
+width: 100%;
+`
+const Sum = styled.h5`
+text-align: center;
+margin: 1rem 0;
+font-size: 1rem;
+font-weight: 500;
+width: 100%;
+`
+const Summary = styled.h4`
+margin-bottom: 1rem;
+text-transform: uppercase;
+font-size: 1.4rem;
+font-weight: 400;
+text-align: center;
+`
+const FormWrap = styled.div`
+text-align: center;
+margin: 0 auto;
+margin-top: 1rem;
+font-size: 1.2rem;
+font-weight: 400;
+`
+
 
 export default CartPage;

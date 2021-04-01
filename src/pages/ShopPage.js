@@ -4,6 +4,7 @@ import { pageAnimation } from '../animation';
 
 import { ref } from "../firebase";
 
+import Footer from '../components/Footer';
 import Product from '../components/Product';
 import Filter from '../components/Filter';
 import StripesBg1 from '../components/svg/StripesBg1';
@@ -60,7 +61,9 @@ const ShopPage = props => {
             <motion.div
                 variants={pageAnimation}
                 initial='initial'
-                animate='animate'>
+                animate='animate'
+                exit='exit'
+            >
                 <StripesBg1 />
                 <Wrapper>
                     <Filter />
@@ -74,6 +77,7 @@ const ShopPage = props => {
                     </Grid>
                 </Wrapper>
             </motion.div>
+            <Footer />
         </>
     );
 }

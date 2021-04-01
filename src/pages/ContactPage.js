@@ -17,7 +17,7 @@ const ContactPage = () => {
                 animate='animate'
                 exit='exit'
             >
-                <h2 className="title">Contact us</h2>
+                <Title>Contact us</Title>
                 <form className='form' action="">
                     <TextField id="standard-basic" label="Name" variant="outlined" />
                     <TextField id="standard-basic" label="e-mail" variant="outlined" />
@@ -41,11 +41,7 @@ max-width: 1200px;
 padding-top: 70px;
 overflow: hidden;
 
-.title{
-    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
+
   .form{
     display: flex;
     flex-direction: column;
@@ -57,6 +53,14 @@ overflow: hidden;
     }
   }
 
+`
+
+const Title = styled.h2`
+font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 300;
+margin-bottom: 2rem;
+text-align: center;
+width: 100%;
 `
 
 export default ContactPage;
