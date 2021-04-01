@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { footerAnimation } from '../animation';
 
 import styled from "styled-components";
 
@@ -12,8 +14,20 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 
 const Footer = () => {
+    const [rendered, setRendered] = useState(false);
+
+    useEffect(() => {
+        setRendered(true)
+        console.log(rendered)
+    }, [])
+
     return (
-        <Container>
+        <Container
+            variants={footerAnimation}
+            initial='initial'
+            animate='animate'
+            exit='exit'
+        >
             <footer className='footer'>
                 <ul className="info">
                     <li>FAQ</li>
@@ -56,7 +70,7 @@ const Footer = () => {
     );
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   background: #ddd;
   height: 18rem;
   width: 100%;

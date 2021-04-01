@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { motion } from 'framer-motion';
+import { fadeAnimation } from '../animation';
+import { useScroll } from "../components//useScroll";
 
 import Carousel from 'react-material-ui-carousel'
 import Button from '@material-ui/core/Button';
@@ -35,6 +37,7 @@ function Item(props) {
 }
 
 const Social = () => {
+  const [element, controls] = useScroll(fadeAnimation.show, 0.6);
 
   const images = [
     {
@@ -60,30 +63,37 @@ const Social = () => {
 
   return (
     <>
-      <StripesThick
-      />
-      <Wrapper>
-        <h2 className="title">Use hashtag <span className="title-span">#slavclothing</span>  and show us your style</h2>
-        <Carousel id="carousel" indicators={false} animation='fade'>
-          {
-            images.map((image, i) => <Item key={i} image={image} />)
-          }
-        </Carousel>
-        <Container >
-          <div className="stripes-container">
-            <div className="stripes"></div>
-          </div>
-          <div className="newsletter">
-            <h2 className="title">
-              Join our newsletter
+      <motion.section
+        variants={fadeAnimation}
+        animate={controls}
+        initial="hidden"
+        ref={element}
+      >
+        <StripesThick
+        />
+        <Wrapper>
+          <h2 className="title">Use hashtag <span className="title-span">#slavclothing</span>  and show us your style</h2>
+          <Carousel id="carousel" indicators={false} animation='fade'>
+            {
+              images.map((image, i) => <Item key={i} image={image} />)
+            }
+          </Carousel>
+          <Container >
+            <div className="stripes-container">
+              <div className="stripes"></div>
+            </div>
+            <div className="newsletter">
+              <h2 className="title">
+                Join our newsletter
                     </h2>
-            <form className='form' action="">
-              <TextField id="standard-basic" label="Your email" variant="outlined" />
-              <Button size="large" variant="outlined">Submit</Button>
-            </form>
-          </div>
-        </Container>
-      </Wrapper>
+              <form className='form' action="">
+                <TextField id="standard-basic" label="Your email" variant="outlined" />
+                <Button size="large" variant="outlined">Submit</Button>
+              </form>
+            </div>
+          </Container>
+        </Wrapper>
+      </motion.section>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -38,9 +39,9 @@ const ErrorPage = () => {
                             Take me back
                     </Button>
                     </NavLink>
-
                 </Message>
             </Wrapper>
+            <Footer />
         </>
     );
 }

@@ -4,6 +4,8 @@ import ProductInCart from '../components/ProductInCart';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import Footer from '../components/Footer';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -94,6 +96,7 @@ const CartPage = () => {
                     </SummaryContainer>
                 </div>
             </Wrapper>
+            <Footer />
         </>
 
     );

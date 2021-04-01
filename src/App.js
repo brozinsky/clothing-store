@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 
@@ -13,6 +13,8 @@ import CartPage from './pages/CartPage';
 import ErrorPage from './pages/ErrorPage';
 
 import { createGlobalStyle } from 'styled-components'
+
+import { AnimatePresence } from "framer-motion";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -28,19 +30,22 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     position: relative;
     min-height: 100vh;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
   }
 `
 
 function App() {
+  const location = useLocation();
+  console.log(location)
   return (
     <>
-
       <GlobalStyle />
-      <Router>
-        <ProductsProvider>
-          <CartProvider>
-            <Menu />
-            <Switch>
+      <ProductsProvider>
+        <CartProvider>
+          <Menu />
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
               <Route path="/" exact component={HomePage} />
               <Route path="/shop/sale"><ShopPage value='onSale' /></Route>
               <Route path="/shop/men"><ShopPage value='m' /></Route>
@@ -49,10 +54,9 @@ function App() {
               <Route path="/cart" component={CartPage} />
               <Route component={ErrorPage} />
             </Switch>
-          </CartProvider>
-        </ProductsProvider>
-        <Footer />
-      </Router>
+          </AnimatePresence>
+        </CartProvider>
+      </ProductsProvider>
     </>
   );
 }

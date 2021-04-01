@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { motion } from 'framer-motion';
 import { ref } from "../firebase";
+import { pageAnimation } from '../animation';
+import { fadeAnimation } from '../animation';
 
+import Footer from '../components/Footer';
 import Tabs from '../components/Tabs';
 import Header from '../components/Header';
 import Product from '../components/Product';
@@ -10,18 +13,11 @@ import Social from '../components/Social';
 import { useScroll } from "../components//useScroll";
 import Grid from '@material-ui/core/Grid';
 
-const fade = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: { ease: [0.42, 0, 0.58, 1], duration: 0.5, repeat: 0 },
-    },
-};
 
 const HomePage = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState([])
-    const [element, controls] = useScroll(fade.show, 0.6);
+    const [element, controls] = useScroll(fadeAnimation.show, 0.6);
 
     const getProducts = () => {
         setLoading(true);
@@ -59,11 +55,16 @@ const HomePage = () => {
         ))
 
     return (
-        <>
+        <motion.main
+            variants={pageAnimation}
+            initial='initial'
+            animate='animate'
+            exit='exit'
+        >
             <Header />
             <Tabs />
             <NewProductsSection
-                variants={fade}
+                variants={fadeAnimation}
                 animate={controls}
                 initial="hidden"
                 ref={element}>
@@ -76,10 +77,9 @@ const HomePage = () => {
                 >{newProducts}
                 </Grid>
             </NewProductsSection>
-            <Social
-
-            />
-        </>
+            <Social />
+            <Footer />
+        </motion.main>
     );
 }
 

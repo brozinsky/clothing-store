@@ -11,7 +11,7 @@ function Item(props) {
     )
 }
 
-const Social = () => {
+const Header = () => {
     const [imgUrl, setImgUrl] = useState([])
     const [loading, setLoading] = useState([])
 
@@ -43,7 +43,7 @@ const Social = () => {
 
     return (
         <>
-            <Wrapper>
+            <Wrapper >
                 <Carousel animation='slide'>
                     {images.map((image, i) =>
                         <Item key={i} image={image} />)}
@@ -58,7 +58,6 @@ margin: 0 auto;
 width: 1200px;
 height: 27rem;
 margin-bottom: 3.6rem;
-
 .image{
   max-width: 1200px;
   height: auto;
@@ -66,4 +65,4 @@ margin-bottom: 3.6rem;
 }
 `
 
-export default Social;
+export default Header;
