@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { motion } from 'framer-motion';
 import { fadeAnimation } from '../animation';
 import { useScroll } from "../components//useScroll";
+import { socialRef } from "../firebase";
 
 import Carousel from 'react-material-ui-carousel'
 import Button from '@material-ui/core/Button';
@@ -10,22 +11,7 @@ import TextField from '@material-ui/core/TextField';
 
 import StripesThick from "./svg/StripesThick";
 
-import sm1 from "../img/socials/sm1.png";
-import sm2 from "../img/socials/sm2.png";
-import sm3 from "../img/socials/sm3.png";
-import sm4 from "../img/socials/sm4.png";
-import sm5 from "../img/socials/sm5.png";
-import sm6 from "../img/socials/sm6.png";
-import sm7 from "../img/socials/sm7.png";
-import sm8 from "../img/socials/sm8.png";
-import sm9 from "../img/socials/sm9.png";
-import sm10 from "../img/socials/sm10.png";
-import sm11 from "../img/socials/sm11.png";
-import sm12 from "../img/socials/sm12.png";
-
-
 function Item(props) {
-
   return (
     <ImageContainer>
       <img className='image' src={props.image.imgUrl1} alt='social media' />
@@ -37,27 +23,48 @@ function Item(props) {
 }
 
 const Social = () => {
-  const [element, controls] = useScroll(fadeAnimation.show, 0.6);
+  const [element, controls] = useScroll(fadeAnimation.show, 0.2);
+  const [imgUrl, setImgUrl] = useState([])
+  const [loading, setLoading] = useState([])
+
+  const getImages = () => {
+    setLoading(true);
+    socialRef.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data().imgUrl);
+      })
+      setImgUrl(items);
+      setLoading(false);
+    })
+  }
+
+  useEffect(() => {
+    getImages();
+  }, [])
+
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
 
   const images = [
     {
-      imgUrl1: sm1,
-      imgUrl2: sm2,
-      imgUrl3: sm3,
-      imgUrl4: sm4,
+      imgUrl1: imgUrl[0],
+      imgUrl2: imgUrl[1],
+      imgUrl3: imgUrl[2],
+      imgUrl4: imgUrl[3],
     },
     {
-      imgUrl1: sm5,
-      imgUrl2: sm6,
-      imgUrl3: sm7,
-      imgUrl4: sm8,
+      imgUrl1: imgUrl[4],
+      imgUrl2: imgUrl[5],
+      imgUrl3: imgUrl[6],
+      imgUrl4: imgUrl[7],
     },
     {
-      imgUrl1: sm9,
-      imgUrl2: sm10,
-      imgUrl3: sm11,
-      imgUrl4: sm12,
-
+      imgUrl1: imgUrl[8],
+      imgUrl2: imgUrl[9],
+      imgUrl3: imgUrl[10],
+      imgUrl4: imgUrl[11],
     }
   ]
 

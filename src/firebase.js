@@ -27,3 +27,4 @@ firebase.initializeApp(firebaseConfig);
 
 export const ref = firebase.firestore().collection("products")
 export const imgRef = firebase.firestore().collection("img")
+export const socialRef = firebase.firestore().collection("social")
