@@ -38,7 +38,8 @@ const Tabs = () => {
                         duration: 0.7,
                         ease: 'linear'
                     }}
-                    className="tab tab-1" style={{
+                    className="tab tab-1" style={
+                        {
                         backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
                     }} >
                     <div className="container-1">

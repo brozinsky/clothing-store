@@ -6,7 +6,17 @@ import { imgRef } from "../firebase";
 function Item(props) {
     return (
         <>
-            <img className="image" src={props.image.imgUrl} alt='social media' />
+            <picture>
+                <source className="image"
+                    media="(min-width: 1200px)"
+                    srcset={props.image.imgUrl} />
+                <source className="image"
+                    media="(min-width: 768px)"
+                    srcset={props.image.imgUrlTablet} />
+                <img className="image"
+                    src={props.image.imgUrlMobile} alt="Carousel item" />
+            </picture>
+            {/* <img className="image" src={props.image.imgUrl} alt='social media' /> */}
         </>
     )
 }
@@ -36,9 +46,9 @@ const Header = () => {
     }
 
     let images = [
-        { imgUrl: imgUrl[0] },
-        { imgUrl: imgUrl[1] },
-        { imgUrl: imgUrl[2] }
+        { imgUrl: imgUrl[0], imgUrlTablet: imgUrl[3], imgUrlMobile: imgUrl[6] },
+        { imgUrl: imgUrl[1], imgUrlTablet: imgUrl[4], imgUrlMobile: imgUrl[7] },
+        { imgUrl: imgUrl[2], imgUrlTablet: imgUrl[5], imgUrlMobile: imgUrl[8] }
     ]
 
     return (
