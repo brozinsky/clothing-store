@@ -74,12 +74,13 @@ const Container = styled(motion.div)`
   background: #ddd;
   height: 18rem;
   width: 100%;
-  display: flex;
   position: absolute;
   bottom: 0;
   background: #252525;
   color: #ccc;
-
+  @media (max-width: 768px) {
+        height: 35rem;
+      }
 
   .footer{
       display: flex;
@@ -88,7 +89,12 @@ const Container = styled(motion.div)`
       align-items: center;
       width: 100vw;
       max-width: 1200px;
+      background: #252525;
       margin: 0 auto;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        height: 35rem;
+      }
   }
 
   .social{
@@ -110,19 +116,34 @@ const Container = styled(motion.div)`
         text-transform: uppercase;
         letter-spacing: 0.05rem;
         font-weight: 300;
+        @media (max-width: 768px) {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+      }
     }
     &-link{
         margin: 0.2rem 0.7rem;
         scale: 1.4;
+        @media (max-width: 768px) {
+            scale: 1.2;
+      }
     }
     &-logo{
-        scale: 0.8;
+        width: 20rem;
+        @media (max-width: 768px) {
+            width: 16rem;
+      }
     }
   }
 
   .info{
     text-decoration: none;
     margin-left: 2rem;
+    @media (max-width: 768px) {
+        margin-left: 0rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
 
     &>li{
     list-style-type: none;
@@ -153,8 +174,17 @@ const Container = styled(motion.div)`
     text-decoration: none;
     margin-right: 2rem;
     line-height: 1.5rem;
+    @media (max-width: 768px) {
+        line-height: 1.4rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
     &-title{
         margin-bottom: 0.8rem;
+        @media (max-width: 768px) {
+            margin-bottom: 0.3rem;
+            margin-top: 1rem;
+        }
     }
     &>li{
     list-style-type: none;
@@ -180,6 +210,7 @@ const Container = styled(motion.div)`
     &-link{
         color: inherit;
         text-decoration: none;
+
         &:hover{
         color: #fff;
         }

@@ -126,6 +126,10 @@ const Wrapper = styled(motion.div)`
   justify-content: space-around;
   padding-bottom: 320px;
 
+  @media (max-width: 768px) {
+    margin-bottom: 15rem;
+  }
+
   .title{
     font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
@@ -166,6 +170,7 @@ const Container = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+
   }
   .stripes{
     position: relative;

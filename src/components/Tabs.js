@@ -40,8 +40,8 @@ const Tabs = () => {
                     }}
                     className="tab tab-1" style={
                         {
-                        backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
-                    }} >
+                            backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/clothing-store-402a8.appspot.com/o/tab-women.png?alt=media&token=d04ba1ec-5373-452a-a787-ee4756d536bd)`
+                        }} >
                     <div className="container-1">
                         <motion.h2
                             initial={{
@@ -136,6 +136,11 @@ const Container = styled.div`
   max-width: 1200px;
   margin-bottom: 50px;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
   .tab{
       width: 50%;
       height: 500px;
@@ -143,6 +148,11 @@ const Container = styled.div`
       background-repeat: no-repeat;
       background-position: center;
       position: relative;
+
+      @media (max-width: 768px) {
+        width: 100vw;
+        height: 13rem;
+    }
   }
 
   .title{
@@ -153,6 +163,11 @@ const Container = styled.div`
     font-weight: 500;
     margin-bottom: 1.4rem;
 
+    @media (max-width: 768px) {
+        font-size: 2rem;
+        line-height: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
   }
 
   .title-thin{
@@ -168,6 +183,9 @@ const Container = styled.div`
     right: 10%;
     top: 40%;
     justify-content: right;
+    @media (max-width: 768px) {
+        top: 30%;
+    }
   }
 
   .container-2{
@@ -177,6 +195,9 @@ const Container = styled.div`
     left: 10%;
     top: 40%;
     justify-content: left;
+    @media (max-width: 768px) {
+        top: 30%;
+    }
   }
 `
 

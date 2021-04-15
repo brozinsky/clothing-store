@@ -76,6 +76,10 @@ const Container = styled.div`
   flex-wrap: wrap;
   width: 16rem;
 
+  @media (max-width: 768px) {
+    width: 38vw;
+  }
+
   .container-info{
     display: flex;
     flex-direction: column;
@@ -87,7 +91,6 @@ const Container = styled.div`
     justify-content: space-evenly;
     margin: 0 auto;
     position: relative;
-
   }
 
   .product-img{
@@ -95,6 +98,10 @@ const Container = styled.div`
     margin: 0 auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      height: 35vw;
+  }
   }
 
   .category{
@@ -106,6 +113,9 @@ const Container = styled.div`
     text-align: center;
     font-size: 1.6rem;
     margin: 0.1rem;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+  }
   }
 
   .container-row{
@@ -119,10 +129,19 @@ const Container = styled.div`
   .price{
     font-size: 1.5rem;
 
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
       &--crossed{
         text-decoration: line-through;
         font-size: 1.2rem;
         margin-right: 0.4rem;
+
+        @media (max-width: 768px) {
+          font-size: 0.8rem;
+          margin-right: 0.1rem;
+        }
       }
 
       &--sale{
@@ -144,6 +163,13 @@ const Container = styled.div`
     width: 3rem;
     border-radius: 50%;
     font-family: 'Satisfy', 'Helvetica Neue';
+
+    @media (max-width: 768px) {
+      height: 2rem;
+      width: 2rem;
+      line-height: 2.1rem;
+      font-size: 0.8rem;
+    }
 }
 .icon--sale{
   background: #FFB6B3;

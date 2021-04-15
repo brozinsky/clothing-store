@@ -19,7 +19,8 @@ const StripesThick = () => {
     return (
         <div ref={element} >
             <Svg
-                width="1920" height="165" viewBox="0 0 1920 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+                // width="1920" height="165"
+                viewBox="0 0 1920 165" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.rect
                     variants={swipe}
                     animate={controls}
@@ -55,6 +56,10 @@ const StripesThick = () => {
 
 const Svg = styled(motion.svg)`
 margin: 3rem 0;
+@media (max-width: 768px) {
+      width: 100vw;
+      margin: 1rem 0;
+}
 `
 
 export default StripesThick

@@ -16,7 +16,6 @@ function Item(props) {
                 <img className="image"
                     src={props.image.imgUrlMobile} alt="Carousel item" />
             </picture>
-            {/* <img className="image" src={props.image.imgUrl} alt='social media' /> */}
         </>
     )
 }
@@ -68,6 +67,10 @@ margin: 0 auto;
 width: 1200px;
 height: 27rem;
 margin-bottom: 3.6rem;
+@media (max-width: 768px) {
+    margin-bottom: 0rem;
+    width: 100vw;
+  }
 .image{
   max-width: 1200px;
   height: auto;

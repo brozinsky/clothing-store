@@ -27,6 +27,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-color: #eee;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
     font-weight: 400;
     position: relative;
     min-height: 100vh;
