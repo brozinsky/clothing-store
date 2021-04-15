@@ -40,7 +40,9 @@ margin: 0 auto;
 max-width: 1200px;
 padding-top: 70px;
 overflow: hidden;
-
+@media (max-width: 768px) {
+    padding-bottom: 5rem;
+}
 
   .form{
     display: flex;

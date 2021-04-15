@@ -109,7 +109,6 @@ box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
         background: #fff;
         justify-content: space-around;
         font-size: 1.3rem;
-        z-index: 99;
         transition: 0.25s;
       }
     &>a{

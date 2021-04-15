@@ -66,7 +66,7 @@ const ShopPage = props => {
             >
                 <StripesBg1 />
                 <Wrapper>
-                    <Filter />
+                    {/* <Filter /> */}
                     <Grid item sm={12}
                         container
                         direction="row"
@@ -87,6 +87,11 @@ margin: 0 auto;
 max-width: 1200px;
 padding-top: 5rem;
 padding-bottom: 25rem;
+@media (max-width: 768px) {
+    padding-bottom: 40rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 `
 
 export default ShopPage;

@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 
 const StripesBg1 = () => {
     return (
-        <Svg width="1920" height="943" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <Svg
+            width="1920" height="943"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
             <motion.path
                 initial={{
                     pathLength: 0,
@@ -72,5 +74,6 @@ left: 0%;
 z-index: -3;
 opacity: 0.5;
 transform: rotate(-8deg);
+max-width: 100vw;
 `
 export default StripesBg1

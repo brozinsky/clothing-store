@@ -132,6 +132,9 @@ const Wrapper = styled(motion.div)`
 margin: 0 auto;
 max-width: 1200px;
 padding-top: 5rem;
+@media (max-width: 768px) {
+    padding-bottom: 10rem;
+}
 
 .container{
     padding-bottom: 25rem;
@@ -139,15 +142,20 @@ padding-top: 5rem;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    @media (max-width: 768px) {
+    width: 100vw;
+}
 }
 
 .details-img{
     height: 100px;
+@media (max-width: 768px) {
+display: none;}
 }
 .details-wrap{
     display: flex;
     flex-direction: row;
-  }
+}
 
 .details-container{
     display: flex;

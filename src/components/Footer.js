@@ -139,6 +139,7 @@ const Container = styled(motion.div)`
   .info{
     text-decoration: none;
     margin-left: 2rem;
+    margin-top: 2rem;
     @media (max-width: 768px) {
         margin-left: 0rem;
         margin-top: 1rem;
@@ -174,9 +175,11 @@ const Container = styled(motion.div)`
     text-decoration: none;
     margin-right: 2rem;
     line-height: 1.5rem;
+    margin-top: 2rem;
     @media (max-width: 768px) {
         line-height: 1.4rem;
         margin-bottom: 3rem;
+        margin-top: 0;
         text-align: center;
       }
     &-title{

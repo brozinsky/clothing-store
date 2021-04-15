@@ -48,6 +48,7 @@ const ErrorPage = () => {
 
 const Wrapper = styled.div`
 margin: 0 auto;
+overflow-x: hidden;
 max-width: 1200px;
 min-height: 100vh;
 padding: 100px 50px 320px 50px;
@@ -62,7 +63,13 @@ radial-gradient(white, rgba(255,255,255,.01) 2px, transparent 40px),
 radial-gradient(rgba(255,255,255,.2), rgba(255,255,255,.01) 2px, transparent 30px);
 background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
 background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-
+@media (max-width: 768px) {
+    padding-bottom: 40rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 `
 const ImgContaineer = styled.div`
     animation: move 90s infinite linear ;
@@ -109,13 +116,18 @@ flex-direction: column;
 justify-content: center;
 transform: translateY(-10%);
 
-
 h1{
     font-size: 9rem;
     font-weight: 400;
+@media (max-width: 768px) {
+    font-size: 5rem;
+}
 }
 span{
     font-size: 2.5rem;
+@media (max-width: 768px) {
+    font-size: 2rem;
+}
 }
 `
 
