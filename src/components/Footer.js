@@ -14,11 +14,10 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 
 const Footer = () => {
-    const [rendered, setRendered] = useState(false);
+    const [, setRendered] = useState(false);
 
     useEffect(() => {
         setRendered(true)
-        console.log(rendered)
     }, [])
 
     return (

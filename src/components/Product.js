@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Product = ({ category, imgUrl, name, price, sale, id, isOnSale, isNew }) => {
   const classes = useStyles();
-  const [cart, setCart] = useContext(CartContext);
+  const [, setCart] = useContext(CartContext);
 
   const handleAddToCart = () => {
     const product = {

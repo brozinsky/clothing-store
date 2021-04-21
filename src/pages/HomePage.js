@@ -40,9 +40,9 @@ const HomePage = () => {
     }
 
     const newProducts = products.filter(product => (product.isNew === true))
-        .map(product => (
+        .map((product, i) => (
             <Product
-                key={product.itemId}
+                key={i}
                 id={product.itemId}
                 name={product.name}
                 category={product.category}

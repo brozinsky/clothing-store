@@ -6,7 +6,6 @@ import { ref } from "../firebase";
 
 import Footer from '../components/Footer';
 import Product from '../components/Product';
-import Filter from '../components/Filter';
 import StripesBg1 from '../components/svg/StripesBg1';
 
 import Grid from '@material-ui/core/Grid';
@@ -26,7 +25,6 @@ const ShopPage = props => {
             })
             setProducts(items);
             setLoading(false);
-            console.log(items)
         })
     }
 

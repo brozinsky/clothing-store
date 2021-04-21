@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, useLocation } from "react-router-dom";
 import Menu from './components/Menu';
-import Footer from './components/Footer';
 
 import { ProductsProvider } from './contexts/ProductsContext';
 import { CartProvider } from './contexts/CartContext';
@@ -39,7 +38,6 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const location = useLocation();
-  console.log(location)
   return (
     <>
       <GlobalStyle />

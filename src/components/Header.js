@@ -9,10 +9,10 @@ function Item(props) {
             <picture>
                 <source className="image"
                     media="(min-width: 1200px)"
-                    srcset={props.image.imgUrl} />
+                    srcSet={props.image.imgUrl} />
                 <source className="image"
                     media="(min-width: 768px)"
-                    srcset={props.image.imgUrlTablet} />
+                    srcSet={props.image.imgUrlTablet} />
                 <img className="image"
                     src={props.image.imgUrlMobile} alt="Carousel item" />
             </picture>
@@ -64,16 +64,21 @@ const Header = () => {
 
 const Wrapper = styled.div`
 margin: 0 auto;
-width: 1200px;
+max-width: 1200px;
 height: 27rem;
 margin-bottom: 3.6rem;
+@media (max-width: 1200px) {
+    min-width: 100vw;
+    height: 22rem;
+  }
 @media (max-width: 768px) {
     margin-bottom: 0rem;
-    width: 100vw;
+    min-width: 100vw;
+    height: 27rem;
   }
 .image{
   max-width: 1200px;
-  height: auto;
+  /* height: auto; */
   margin-top: 3rem;
 }
 `

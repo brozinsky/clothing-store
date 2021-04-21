@@ -9,7 +9,7 @@ import styled from "styled-components";
 import logo from "../img/b_logo.svg";
 
 const Menu = props => {
-    const [cart, setInCart] = useContext(CartContext);
+    const [cart,] = useContext(CartContext);
     const [isOpen, setIsOpen] = useState(false);
 
     let cartNumber = cart.length;

@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 
 const CartPage = () => {
     const classes = useStyles();
-    const [cart, setCart] = useContext(CartContext);
+    const [cart,] = useContext(CartContext);
     const [shipping, setShipping] = useState(4);
     const cost = cart.reduce((acc, curr) => acc + curr.price, 0);
 
