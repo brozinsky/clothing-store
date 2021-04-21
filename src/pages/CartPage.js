@@ -77,8 +77,9 @@ const CartPage = () => {
                                 {cart.length <= 0 ?
                                     <Empty>Your cart is empty</Empty >
                                     :
-                                    cart.map(item => (
+                                    cart.map((item, i) => (
                                         <ProductInCart
+                                            key={i}
                                             id={item.id}
                                             name={item.name}
                                             url={item.url}

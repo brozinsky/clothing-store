@@ -10,12 +10,12 @@ const StripesBg1 = () => {
             <motion.path
                 initial={{
                     pathLength: 0,
-                    pathLOffset: 1,
+                    pathOffset: 1,
                     strokeWidth: 30
                 }}
                 animate={{
                     pathLength: 1,
-                    pathLOffset: 0,
+                    pathOffset: 0,
                     strokeWidth: 40
                 }}
                 transition={{
@@ -29,12 +29,12 @@ const StripesBg1 = () => {
             <motion.path
                 initial={{
                     pathLength: 0,
-                    pathLOffset: 1,
+                    pathOffset: 1,
                     strokeWidth: 30
                 }}
                 animate={{
                     pathLength: 1,
-                    pathLOffset: 0,
+                    pathOffset: 0,
                     strokeWidth: 40
                 }}
                 transition={{
@@ -48,12 +48,12 @@ const StripesBg1 = () => {
             <motion.path
                 initial={{
                     pathLength: 0,
-                    pathLOffset: 1,
+                    pathOffset: 1,
                     strokeWidth: 20
                 }}
                 animate={{
                     pathLength: 1,
-                    pathLOffset: 0,
+                    pathOffset: 0,
                     strokeWidth: 40
                 }}
                 transition={{

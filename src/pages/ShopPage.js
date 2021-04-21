@@ -40,9 +40,9 @@ const ShopPage = props => {
         .filter(product => (product.sex === props.value
             || (product.sex === null && props.value !== 'onSale'))
             || (props.value === 'onSale' && product.isOnsale === true))
-        .map(product => (
+        .map((product, i) => (
             <Product
-                key={product.id}
+                key={i}
                 id={product.id}
                 name={product.name}
                 category={product.category}
