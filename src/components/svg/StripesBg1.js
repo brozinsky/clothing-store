@@ -75,5 +75,9 @@ z-index: -3;
 opacity: 0.5;
 transform: rotate(-8deg);
 max-width: 100vw;
+
+@media (max-width: 768px) {
+display: none;
+}
 `
 export default StripesBg1
